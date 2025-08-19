@@ -7,14 +7,12 @@
 pages:
   stage: deploy
   script:
-    # Tạo thư mục public (GitLab Pages yêu cầu)
+    # Tạo thư mục public (nếu chưa có)
     - mkdir public
-    # Copy toàn bộ source code vào public/
-    - cp -r * public
-    # Xóa .gitlab-ci.yml khỏi thư mục public (nếu không muốn public file này)
-    - rm -f public/.gitlab-ci.yml
+    # Copy toàn bộ file, trừ thư mục .git, .gitlab-ci.yml và chính public/
+    - rsync -av --exclude=public --exclude=.git --exclude=.gitlab-ci.yml ./ public
   artifacts:
     paths:
       - public
   only:
-    - main   # hoặc master, tùy nhánh chính bạn dùng
+    - main   # hoặc master, tùy nhánh chính của bạn
