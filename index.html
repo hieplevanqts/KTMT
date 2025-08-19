@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <style>
+      :root {
+        --primary-color: #007bff;
+        --secondary-color: #6c757d;
+        --bg-color: #f8f9fa;
+        --card-bg: #ffffff;
+        --text-color: #212529;
+        --border-color: #dee2e6;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --success-color: #28a745;
+        --danger-color: #dc3545;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      h1 {
+        color: var(--primary-color);
+        margin: 0;
+      }
+
+      .controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 30px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: #e9ecef;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      #fileSelect,
+      #searchInput {
+        width: 100%;
+        flex: 1;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background-color: var(--card-bg);
+        transition: all 0.3s ease;
+      }
+
+      #searchInput:focus,
+      #fileSelect:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        outline: none;
+      }
+
+      #index-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      #index-bar a {
+        padding: 6px 12px;
+        background: var(--secondary-color);
+        color: #fff;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+
+      #index-bar a:hover {
+        background: #5a6268;
+        transform: translateY(-2px);
+      }
+
+      .question {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: 0 4px 12px var(--shadow-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .question:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px var(--shadow-color);
+      }
+
+      .question-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .question h4 {
+        margin: 0;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+      }
+
+      .question-content {
+        margin-bottom: 15px;
+      }
+
+      .question img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-top: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .options {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .options li {
+        background: #f1f3f5;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        transition: background 0.3s ease;
+        cursor: pointer;
+        /* Default border matching other list items */
+        border: 1px solid #f1f3f5; /* Match background for seamless look */
+      }
+      
+      .options li:last-child {
+          margin-bottom: 0;
+      }
+
+      /* Updated styles for less flashy feedback */
+      .options li.correct {
+        background-color: #e6f7eb; /* Light green background */
+        border-left: 5px solid var(--success-color);
+        color: var(--text-color);
+      }
+
+      .options li.correct::before {
+        content: '✔';
+        color: var(--success-color);
+        font-weight: bold;
+        margin-right: 8px;
+      }
+      
+      .options li.incorrect {
+        background-color: #fff3f5; /* Light red background */
+        border-left: 5px solid var(--danger-color);
+        color: var(--text-color);
+      }
+      
+      .options li.incorrect::before {
+        content: '✖';
+        color: var(--danger-color);
+        font-weight: bold;
+        margin-right: 8px;
+      }
+
+      .options li.selected {
+        background-color: #e8f3ff; /* Light blue background */
+        border-left: 5px solid var(--primary-color);
+        color: var(--text-color);
+      }
+
+      .options li.selected::before {
+        content: '➜';
+        color: var(--primary-color);
+        font-weight: bold;
+        margin-right: 8px;
+      }
+
+      .options li img {
+        margin-top: 8px;
+        margin-left: 20px;
+        border: 1px solid #ddd;
+      }
+
+      #scrollTopBtn, #scrollBottomBtn {
+        position: fixed;
+        width: 55px;
+        height: 55px;
+        border: none;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        z-index: 1000;
+        opacity: 0.8;
+        transition: opacity 0.3s, transform 0.3s;
+        right: 25px;
+      }
+      
+      #scrollTopBtn {
+        bottom: 85px;
+      }
+      
+      #scrollBottomBtn {
+        bottom: 25px;
+      }
+
+      #scrollTopBtn:hover,
+      #scrollBottomBtn:hover {
+        opacity: 1;
+        transform: translateY(-3px);
+      }
+
+      #examModeBtn {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: var(--success-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      #examModeBtn:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1001; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background-color: var(--card-bg);
+        margin: auto;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        width: 90%;
+        max-width: 800px;
+        position: relative;
+        animation: fadeIn 0.3s;
+        max-height: 90vh; /* Giới hạn chiều cao */
+        overflow-y: auto; /* Thêm thanh cuộn khi nội dung dài */
+      }
+      
+      /* New CSS for exam modal navigation buttons */
+      .exam-nav-btn {
+        position: fixed; /* Changed to fixed */
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        z-index: 1002;
+        opacity: 0.8;
+        transition: opacity 0.3s, transform 0.3s;
+        right: calc(50% - 400px + 15px); /* Position relative to the modal's edge */
+      }
+
+      .exam-nav-btn:hover {
+        opacity: 1;
+        transform: translateY(-3px);
+      }
+      
+      #examScrollTopBtn {
+          bottom: 75px;
+      }
+      
+      #examScrollBottomBtn {
+          bottom: 15px;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 15px;
+      }
+
+      .modal-header h2 {
+        margin: 0;
+        color: var(--primary-color);
+      }
+
+      .modal-body {
+        margin-bottom: 20px;
+      }
+
+      .modal-footer {
+        display: flex;
+        justify-content: flex-start; /* Changed from flex-end */
+        gap: 10px;
+        padding-top: 15px;
+        border-top: 1px solid var(--border-color);
+      }
+      
+      /* Custom styles for confirmation modal */
+      #confirmSubmitModal .modal-content {
+          max-width: 400px;
+          text-align: center;
+      }
+      #confirmSubmitModal .modal-footer {
+          justify-content: center;
+      }
+
+      .close-button {
+        color: var(--secondary-color);
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .close-button:hover,
+      .close-button:focus {
+        color: var(--danger-color);
+        text-decoration: none;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background-color: var(--secondary-color);
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        background-color: #5a6268;
+        transform: translateY(-2px);
+      }
+
+      .timer {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--danger-color); /* Initial color for timer */
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 2px solid var(--danger-color);
+        border-radius: 8px;
+        background-color: #fff3cd; /* Light yellow background */
+      }
+
+      .exam-question {
+        background: #fdfdfd;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .exam-question-number {
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+
+      .exam-question-content p {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .exam-options label {
+        display: block;
+        background-color: #f8f9fa;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+        border: 1px solid #e9ecef;
+      }
+
+      .exam-options label:hover {
+        background-color: #e2e6ea;
+      }
+
+      .exam-options input[type="radio"] {
+        margin-right: 10px;
+        transform: scale(1.2); /* Phóng to radio button */
+      }
+
+      .exam-options input[type="radio"]:checked + span {
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      /* Styles for final score modal */
+      #scoreModal .modal-content {
+        max-width: 400px;
+        text-align: center;
+        padding: 25px;
+      }
+
+      #scoreModal h2 {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      #scoreModal p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      #scoreModal .score-value {
+        font-size: 3rem;
+        font-weight: bold;
+        color: var(--success-color);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 10px;
+        }
+
+        header {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .controls {
+          flex-direction: column;
+          padding: 15px;
+        }
+        
+        #searchInput, #fileSelect {
+          width: 100%;
+        }
+
+        #examModeBtn {
+          width: 100%;
+          margin-top: 10px;
+        }
+
+        #scrollTopBtn, #scrollBottomBtn {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+          right: 15px;
+        }
+
+        #scrollTopBtn {
+          bottom: 75px;
+        }
+
+        #scrollBottomBtn {
+          bottom: 15px;
+        }
+
+        .modal-content {
+          width: 95%;
+          padding: 20px;
+        }
+
+        .exam-nav-btn {
+            right: 15px;
+        }
+      }
+
+      /* Keyframe Animations */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+
+      /* Updated CSS for less flashy feedback on the exam modal */
+      .exam-options label.user-selected {
+        background-color: #e8f3ff !important;
+        border: 2px solid var(--primary-color) !important;
+        color: var(--text-color) !important;
+      }
+
+      .exam-options label.is-correct {
+        background-color: #e6f7eb !important;
+        border: 2px solid var(--success-color) !important;
+        color: var(--text-color) !important;
+        transform: scale(1.01);
+      }
+
+      .exam-options label.user-incorrect {
+        background-color: #fff3f5 !important;
+        border: 2px solid var(--danger-color) !important;
+        color: var(--text-color) !important;
+      }
+
+      /* Ensure text color is consistent for readability */
+      .exam-options label.is-correct input[type="radio"] + span,
+      .exam-options label.user-selected input[type="radio"] + span,
+      .exam-options label.user-incorrect input[type="radio"] + span {
+          color: var(--text-color) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Quiz App</h1>
+        <button id="examModeBtn">Thi thử</button>
+      </header>
+      <div class="controls">
+        <label for="fileSelect">Chọn bộ câu hỏi:</label>
+        <select id="fileSelect"></select>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Tìm câu hỏi..."
+        />
+      </div>
+
+      <div id="index-bar"></div>
+      <hr />
+      <div id="quiz-container"></div>
+    </div>
+
+    <div id="examModal" class="modal">
+        <button id="examScrollTopBtn" class="exam-nav-btn" style="display: none;">⬆</button>
+        <button id="examScrollBottomBtn" class="exam-nav-btn" style="display: none;">⬇</button>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Bài thi thử</h2>
+          <span class="close-button" id="closeExamModal">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="timer" id="countdownTimer">60:00</div>
+          <div id="exam-questions-container">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" id="submitExamBtn">Nộp bài</button>
+          <button class="btn btn-primary" id="viewScoreBtn" style="display: none;">Xem điểm</button>
+          <button class="btn btn-secondary" id="cancelExamBtn">Hủy</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="scoreModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Kết quả thi</h2>
+          <span class="close-button" id="closeScoreModal">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p>Bạn đã hoàn thành bài thi với số điểm:</p>
+          <p class="score-value" id="finalScore">0/10</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="viewAnswersBtn">Xem đáp án đúng</button>
+          <button class="btn btn-primary" id="okScoreModal">OK</button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="confirmSubmitModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Xác nhận nộp bài</h2>
+          <span class="close-button" id="closeConfirmModal">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p>Bạn có chắc chắn muốn nộp bài thi không? Sau khi nộp, bạn sẽ không thể thay đổi đáp án.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="cancelSubmitBtn">Hủy</button>
+          <button class="btn btn-primary" id="confirmSubmitBtn">Nộp bài</button>
+        </div>
+      </div>
+    </div>
+
+    <button id="scrollTopBtn" onclick="scrollToTop()">⬆</button>
+    <button id="scrollBottomBtn" onclick="scrollToBottom()">⬇</button>
+
+
+    <script>
+      class QuizApp {
+        constructor() {
+          this.elements = {
+            fileSelect: document.getElementById("fileSelect"),
+            quizContainer: document.getElementById("quiz-container"),
+            indexBar: document.getElementById("index-bar"),
+            examModeBtn: document.getElementById("examModeBtn"),
+            examModal: document.getElementById("examModal"),
+            closeExamModal: document.getElementById("closeExamModal"),
+            submitExamBtn: document.getElementById("submitExamBtn"),
+            viewScoreBtn: document.getElementById("viewScoreBtn"),
+            cancelExamBtn: document.getElementById("cancelExamBtn"),
+            countdownTimer: document.getElementById("countdownTimer"),
+            examQuestionsContainer: document.getElementById("exam-questions-container"),
+            scoreModal: document.getElementById("scoreModal"),
+            closeScoreModal: document.getElementById("closeScoreModal"),
+            okScoreModal: document.getElementById("okScoreModal"),
+            finalScoreDisplay: document.getElementById("finalScore"),
+            viewAnswersBtn: document.getElementById("viewAnswersBtn"),
+            examScrollTopBtn: document.getElementById("examScrollTopBtn"),
+            examScrollBottomBtn: document.getElementById("examScrollBottomBtn"),
+            searchInput: document.getElementById("searchInput"),
+            scrollTopBtn: document.getElementById("scrollTopBtn"),
+            scrollBottomBtn: document.getElementById("scrollBottomBtn"),
+            
+            // New modal elements
+            confirmSubmitModal: document.getElementById("confirmSubmitModal"),
+            closeConfirmModal: document.getElementById("closeConfirmModal"),
+            confirmSubmitBtn: document.getElementById("confirmSubmitBtn"),
+            cancelConfirmBtn: document.getElementById("cancelSubmitBtn"),
+          };
+          
+          this.state = {
+            allQuizData: [],
+            examQuestions: [],
+            timerInterval: null,
+            timeLeft: 60 * 60,
+            userAnswers: {},
+          };
+
+          this.init();
+        }
+
+        init() {
+          this.loadFileList();
+          this.addEventListeners();
+        }
+
+        addEventListeners() {
+          this.elements.fileSelect.addEventListener("change", (e) => this.loadQuiz(e.target.value));
+          this.elements.searchInput.addEventListener("input", () => this.filterQuestions());
+          this.elements.examModeBtn.addEventListener("click", () => this.startExam());
+          this.elements.closeExamModal.addEventListener("click", () => this.closeExamModal());
+          this.elements.cancelExamBtn.addEventListener("click", () => this.closeExamModal());
+          this.elements.submitExamBtn.addEventListener("click", () => this.submitExam());
+          this.elements.closeScoreModal.addEventListener("click", () => this.closeScoreModal());
+          this.elements.okScoreModal.addEventListener("click", () => this.closeScoreModal());
+          this.elements.viewAnswersBtn.addEventListener("click", () => this.viewCorrectAnswers());
+          this.elements.viewScoreBtn.addEventListener("click", () => {
+              this.elements.examModal.style.display = "none";
+              this.elements.scoreModal.style.display = "flex";
+          });
+          this.elements.examScrollTopBtn.addEventListener("click", () => {
+              document.querySelector('#examModal .modal-content').scrollTop = 0;
+          });
+          this.elements.examScrollBottomBtn.addEventListener("click", () => {
+              const modalContent = document.querySelector('#examModal .modal-content');
+              modalContent.scrollTop = modalContent.scrollHeight;
+          });
+          this.elements.scrollTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+          this.elements.scrollBottomBtn.addEventListener("click", () => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }));
+
+          // New confirmation modal event listeners
+          this.elements.confirmSubmitBtn.addEventListener("click", () => this.proceedSubmission());
+          this.elements.cancelConfirmBtn.addEventListener("click", () => this.closeConfirmModal());
+          this.elements.closeConfirmModal.addEventListener("click", () => this.closeConfirmModal());
+        }
+
+        async loadFileList() {
+          try {
+            const res = await fetch("file_list.json");
+            if (!res.ok) {
+              console.error(`Error loading file_list.json: ${res.status} ${res.statusText}`);
+              return;
+            }
+            const files = await res.json();
+            console.log("Loaded file_list.json:", files);
+            files.forEach((f) => {
+              const opt = document.createElement("option");
+              opt.value = f;
+              opt.textContent = f;
+              this.elements.fileSelect.appendChild(opt);
+            });
+            if (files.length > 0) {
+              this.loadQuiz(files[0]);
+            } else {
+              console.warn("No quiz files found in file_list.json.");
+            }
+          } catch (err) {
+            console.error("Error fetching file list:", err);
+          }
+        }
+
+        async loadQuiz(fileName) {
+          console.log(`Loading quiz data from: json/${fileName}`);
+          try {
+            const res = await fetch(`json/${fileName}`);
+            if (!res.ok) {
+              console.error(`Error loading json/${fileName}: ${res.status} ${res.statusText}`);
+              this.state.allQuizData = [];
+              return;
+            }
+            this.state.allQuizData = await res.json();
+            console.log(`Loaded ${this.state.allQuizData.length} questions from ${fileName}.`);
+            this.renderQuiz(this.state.allQuizData);
+          } catch (err) {
+            console.error(`Error loading quiz data for ${fileName}:`, err);
+            this.state.allQuizData = [];
+          }
+        }
+
+        renderQuiz(data) {
+          this.elements.quizContainer.innerHTML = "";
+          this.elements.indexBar.innerHTML = "";
+          const seenStarts = new Set();
+          data.forEach((q, index) => {
+            const div = document.createElement("div");
+            div.className = "question";
+            const firstWord = q.question.trim().split(" ")[0];
+            const anchor = `q-${index + 1}`;
+            
+            if (!seenStarts.has(firstWord.toLowerCase())) {
+              const link = document.createElement("a");
+              link.href = `#${anchor}`;
+              link.textContent = firstWord;
+              this.elements.indexBar.appendChild(link);
+              seenStarts.add(firstWord.toLowerCase());
+            }
+            div.id = anchor;
+
+            div.innerHTML = `
+              <div class="question-header">
+                <h4>Câu ${index + 1}:</h4>
+              </div>
+              <div class="question-content">
+                <p>${q.question}</p>
+                ${(q.question_images || []).map(imgUrl => `<img src="${imgUrl}" alt="Câu ${index + 1}">`).join('')}
+              </div>
+              <ul class="options">
+                ${Object.keys(q.options).map(key => `
+                  <li class="${key == q.correctAnswer ? 'correct' : ''}">
+                    <span>${key}. ${q.options[key].text}</span>
+                    ${(q.options[key].images || []).map(imgUrl => `<img src="${imgUrl}" alt="Ảnh trong đáp án ${key}">`).join('')}
+                  </li>
+                `).join('')}
+              </ul>
+            `;
+            this.elements.quizContainer.appendChild(div);
+          });
+        }
+        
+        filterQuestions() {
+          const filter = this.elements.searchInput.value.toLowerCase();
+          const questions = document.querySelectorAll(".question");
+          questions.forEach((q) => {
+            const text = q.querySelector(".question-content p").textContent.toLowerCase();
+            q.style.display = text.includes(filter) ? "" : "none";
+          });
+        }
+
+        startExam() {
+          if (this.state.allQuizData.length === 0) {
+            console.error("No quiz data available to start the exam.");
+            return;
+          }
+          const shuffledQuestions = [...this.state.allQuizData].sort(() => 0.5 - Math.random());
+          this.state.examQuestions = shuffledQuestions.slice(0, Math.min(40, this.state.allQuizData.length));
+          this.state.userAnswers = {};
+          console.log(`Starting exam with ${this.state.examQuestions.length} questions.`);
+
+          this.renderExamQuestions(this.state.examQuestions);
+          this.elements.examModal.style.display = "flex";
+          this.startCountdown();
+          this.elements.submitExamBtn.disabled = false;
+          this.elements.submitExamBtn.style.display = 'inline-block';
+          this.elements.viewScoreBtn.style.display = 'none';
+          this.elements.examScrollTopBtn.style.display = 'block';
+          this.elements.examScrollBottomBtn.style.display = 'block';
+        }
+
+        renderExamQuestions(questions) {
+            this.elements.examQuestionsContainer.innerHTML = "";
+            if (questions.length === 0) {
+                this.elements.examQuestionsContainer.textContent = "Không có câu hỏi nào được tải cho bài thi.";
+                return;
+            }
+
+            questions.forEach((q, index) => {
+              const questionDiv = document.createElement("div");
+              questionDiv.className = "exam-question";
+              questionDiv.dataset.questionIndex = index;
+
+              const optionsHtml = Object.keys(q.options).map(key => {
+                const optionId = `q${index}_opt${key}`;
+                return `
+                  <label for="${optionId}">
+                    <input type="radio" name="question${index}" value="${key}" id="${optionId}">
+                    <span>${key}. ${q.options[key].text}</span>
+                    ${(q.options[key].images || []).map(imgUrl => `<img src="${imgUrl}" alt="Ảnh trong đáp án ${key}">`).join('')}
+                  </label>
+                `;
+              }).join('');
+
+              questionDiv.innerHTML = `
+                <div class="exam-question-number">Câu ${index + 1}:</div>
+                <div class="question-content">
+                  <p>${q.question}</p>
+                  ${(q.question_images || []).map(imgUrl => `<img src="${imgUrl}" alt="Câu ${index + 1}">`).join('')}
+                </div>
+                <div class="exam-options">${optionsHtml}</div>
+              `;
+              
+              const radioInputs = questionDiv.querySelectorAll('input[type="radio"]');
+              radioInputs.forEach(input => {
+                input.addEventListener('change', (event) => {
+                  const questionLabels = questionDiv.querySelectorAll('.exam-options label');
+                  questionLabels.forEach(lbl => lbl.classList.remove('user-selected'));
+                  event.target.closest('label').classList.add('user-selected');
+                  this.state.userAnswers[index] = event.target.value;
+                  console.log(`Câu ${index + 1}: Người dùng chọn ${event.target.value}`);
+                });
+              });
+
+              this.elements.examQuestionsContainer.appendChild(questionDiv);
+            });
+            console.log("Exam questions rendered.");
+        }
+
+        startCountdown() {
+          this.state.timeLeft = 60 * 60;
+          this.updateTimerDisplay();
+          clearInterval(this.state.timerInterval);
+          this.state.timerInterval = setInterval(() => {
+            this.state.timeLeft--;
+            this.updateTimerDisplay();
+            if (this.state.timeLeft <= 0) {
+              this.submitExam(true);
+            }
+          }, 1000);
+          console.log("Timer started.");
+        }
+
+        updateTimerDisplay() {
+          const minutes = Math.floor(this.state.timeLeft / 60);
+          const seconds = this.state.timeLeft % 60;
+          this.elements.countdownTimer.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+          
+          const dangerColor = getComputedStyle(document.documentElement).getPropertyValue('--danger-color').trim();
+          const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
+
+          if (this.state.timeLeft <= 60) {
+              this.elements.countdownTimer.style.color = dangerColor;
+              this.elements.countdownTimer.style.borderColor = dangerColor;
+          } else {
+              this.elements.countdownTimer.style.color = primaryColor;
+              this.elements.countdownTimer.style.borderColor = primaryColor;
+          }
+        }
+
+        submitExam(timeUp = false) {
+            if (timeUp) {
+                this.proceedSubmission(true);
+            } else {
+                this.elements.confirmSubmitModal.style.display = 'flex';
+            }
+        }
+        
+        proceedSubmission(timeUp = false) {
+            this.closeConfirmModal();
+            clearInterval(this.state.timerInterval);
+            this.lockExamQuestions();
+            this.calculateAndShowScore();
+            if (timeUp) {
+                console.log("Exam submitted automatically (time up).");
+            } else {
+                console.log("Exam submitted by user.");
+            }
+        }
+
+        lockExamQuestions() {
+          const radioButtons = this.elements.examQuestionsContainer.querySelectorAll('input[type="radio"]');
+          radioButtons.forEach(radio => radio.disabled = true);
+          this.elements.submitExamBtn.disabled = true;
+          console.log("Exam questions locked.");
+        }
+
+        calculateAndShowScore() {
+          console.log("--- Bắt đầu tính điểm ---");
+          let correctAnswersCount = 0;
+          this.state.examQuestions.forEach((q, index) => {
+            const userAnswer = this.state.userAnswers[index];
+            const correctAnswer = q.correctAnswer;
+            
+            if (userAnswer && Number(userAnswer) === Number(correctAnswer)) {
+              correctAnswersCount++;
+            }
+
+            const questionDiv = this.elements.examQuestionsContainer.querySelector(`[data-question-index="${index}"]`);
+            if (!questionDiv) {
+                console.warn(`Không tìm thấy phần tử câu hỏi cho chỉ mục: ${index}.`);
+                return;
+            }
+            const options = questionDiv.querySelectorAll('.exam-options label');
+            
+            options.forEach(label => {
+                const radio = label.querySelector('input[type="radio"]');
+                const optionValue = radio.value;
+                
+                label.classList.remove('user-selected', 'is-correct', 'user-incorrect');
+
+                if (Number(optionValue) === Number(correctAnswer)) {
+                    label.classList.add('is-correct');
+                } else if (Number(optionValue) === Number(userAnswer) && Number(userAnswer) !== Number(correctAnswer)) {
+                    label.classList.add('user-incorrect');
+                }
+            });
+          });
+
+          let finalScore = 0;
+          if (this.state.examQuestions.length > 0) {
+              finalScore = (correctAnswersCount / this.state.examQuestions.length) * 10;
+          }
+          finalScore = parseFloat(finalScore.toFixed(2)); 
+
+          this.elements.finalScoreDisplay.textContent = `${finalScore}/10`;
+          this.elements.examModal.style.display = "none";
+          this.elements.scoreModal.style.display = "flex";
+        }
+        
+        viewCorrectAnswers() {
+            this.elements.scoreModal.style.display = "none";
+            this.elements.examModal.style.display = "flex";
+            this.lockExamQuestions();
+            clearInterval(this.state.timerInterval);
+            this.elements.submitExamBtn.style.display = 'none';
+            this.elements.viewScoreBtn.style.display = 'inline-block';
+        }
+
+        closeExamModal() {
+            this.elements.examModal.style.display = "none";
+            clearInterval(this.state.timerInterval);
+        }
+
+        closeScoreModal() {
+            this.elements.scoreModal.style.display = "none";
+        }
+        
+        closeConfirmModal() {
+            this.elements.confirmSubmitModal.style.display = "none";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        new QuizApp();
+      });
+    </script>
+  </body>
+</html>

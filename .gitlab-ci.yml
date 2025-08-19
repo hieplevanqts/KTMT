@@ -1,0 +1,16 @@
+# Author: Hiep Le Van
+# Website: https://vanhiep.net
+# GitLab CI config for deploying static HTML site to GitLab Pages
+
+pages:
+  stage: deploy
+  script:
+    # Create public folder
+    - mkdir .public
+    # Copy all project files (HTML, CSS, JS, assets) into .public
+    - cp -r * .public
+  artifacts:
+    paths:
+      - .public
+  only:
+    - main   # Hoặc master, tuỳ nhánh chính của bạn
