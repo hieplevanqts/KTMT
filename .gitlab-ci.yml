@@ -6,13 +6,16 @@
 
 pages:
   stage: deploy
+  image: ruby:3.1   # hoặc alpine:latest cũng được
   script:
-    # Tạo thư mục public (nếu chưa có)
+    # Bật pattern mở rộng trong bash
+    - shopt -s extglob
+    # Tạo thư mục public (chứa file để deploy)
     - mkdir public
-    # Copy toàn bộ file, trừ thư mục .git, .gitlab-ci.yml và chính public/
-    - rsync -av --exclude=public --exclude=.git --exclude=.gitlab-ci.yml ./ public
+    # Copy tất cả mọi thứ trừ thư mục public và file config CI
+    - cp -r !(public|.git|.gitlab-ci.yml) public/
   artifacts:
     paths:
       - public
   only:
-    - main   # hoặc master, tùy nhánh chính của bạn
+    - main   # chỉ chạy khi push lên nhánh main
