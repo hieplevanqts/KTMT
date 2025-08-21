@@ -1,0 +1,506 @@
+[
+  {
+    "index": 1,
+    "question": "Chọn một khẳng định nào sau đây là đúng nhất với F={X-->Z, XY-->WP, XY--> ZWQ, XZ --> R}",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Vế trái của X --> Z có chứa thuộc tính dư thừa.",
+        "images": []
+      },
+      "2": {
+        "text": "b. Vế trái của XZ --> R có chứa thuộc tính dư thừa.",
+        "images": []
+      },
+      "3": {
+        "text": "c. Vế trái của XY --> WP không có chứa thuộc tính dư thừa.",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "4": {
+        "text": "d. Vế trái của XY --> WP có chứa thuộc tính dư thừa",
+        "images": []
+      }
+    },
+    "correctAnswer": 3
+  },
+  {
+    "index": 2,
+    "question": "Cho quan hệ R=ABCD và F= {A->C, D->B, C->ABD}. Tập F có phụ thuộc hàm dư thừa là",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. A->C",
+        "images": []
+      },
+      "2": {
+        "text": "b. Không có phụ thuộc hàm dư thừa",
+        "images": []
+      },
+      "3": {
+        "text": "c. A->C và D->B",
+        "images": []
+      },
+      "4": {
+        "text": "d. D->B",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 3,
+    "question": "Cho F={ AB->C, D->EG, C->A, BE->C, BC->D}. F có phụ thuộc hàm dư thừa là",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. BC->D",
+        "images": []
+      },
+      "2": {
+        "text": "b. C->A",
+        "images": []
+      },
+      "3": {
+        "text": "c. AB->C",
+        "images": []
+      },
+      "4": {
+        "text": "d. Các đáp án đưa ra đều sai",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      }
+    },
+    "correctAnswer": 4
+  },
+  {
+    "index": 4,
+    "question": "Cho lược đồ quan hệ Q(A,B,C,D) và tập phụ thuộc hàm F={ A → BC, AB → D}. Cho biết kết quả phủ tối thiệu của tập F là gì?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. { A → B, B → C, A → D }",
+        "images": []
+      },
+      "2": {
+        "text": "b. { A → BC, A → D }",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      },
+      "3": {
+        "text": "c. { A → C, A → D }",
+        "images": []
+      },
+      "4": {
+        "text": "d. { A → B, A → CD }",
+        "images": []
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 5,
+    "question": "Cho lược đồ quan hệ R(A,B,C,D,E,G) với tập cỏc phụ thuộc hàm F ={AB-->C, C-->B, ABD-->E, G-->A, A-->B, B-->E, D-->A, D-->B}. Các phụ thuộc hàm nào sau đây là không dư thừa đối với F?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. D-->B",
+        "images": []
+      },
+      "2": {
+        "text": "b. D-->A",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "3": {
+        "text": "c. ABD-->E",
+        "images": []
+      },
+      "4": {
+        "text": "d. Tất cả các đáp án đều sai",
+        "images": []
+      }
+    },
+    "correctAnswer": 2
+  },
+  {
+    "index": 6,
+    "question": "Xét lược đồ quan hệ  với tập phụ thuộc hàm F = {MSKHTENKH,TP; MSMH TENMH,ĐG; MSKH,MSMH SL; MSKHTENKH}. Phụ thuộc hàm nào sau đây là dư thừa đối với tập F?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. MSKHTENKH,TP",
+        "images": []
+      },
+      "2": {
+        "text": "b. MSKHTENKH",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "3": {
+        "text": "c. MSKH,MSMH SL",
+        "images": []
+      },
+      "4": {
+        "text": "d. MSMH TENMH,ĐG",
+        "images": []
+      }
+    },
+    "correctAnswer": 2
+  },
+  {
+    "index": 7,
+    "question": "Cho lược đồ quan hệ R(A,B,C,D,E,G) với tập cỏc phụ thuộc hàm F ={AB-->C, C-->B, ABD-->E, G-->A, A-->B, B-->E, D-->A, D-->B}. Các phụ thuộc hàm nào sau đây là dư thừa đối với F?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. A-->B",
+        "images": []
+      },
+      "2": {
+        "text": "b. B-->E",
+        "images": []
+      },
+      "3": {
+        "text": "c. D-->A",
+        "images": []
+      },
+      "4": {
+        "text": "d. D --> B",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      }
+    },
+    "correctAnswer": 4
+  },
+  {
+    "index": 8,
+    "question": "Cho F={AB->C, D->E, D->G, C->A, BE->C, BC->D, CG->B, CG->D, CD->B} Các phụ thuộc hàm bị dư thừa trong tập F là:",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. AB->C; CD->B;",
+        "images": []
+      },
+      "2": {
+        "text": "b. Không có phụ thuộc hàm dư thừa",
+        "images": []
+      },
+      "3": {
+        "text": "c. C->A, BE->C, BC->D, CG->B",
+        "images": []
+      },
+      "4": {
+        "text": "d. AB->C; D->E; C->A",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 9,
+    "question": "Cho tập phụ thuộc hàm: F={G  H, G  I, H  G, H  I, I  G, I  H}. Phủ tối thiểu của F là?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. {H G, HI, I G}",
+        "images": []
+      },
+      "2": {
+        "text": "b. {GH,GI,HG,HI}",
+        "images": []
+      },
+      "3": {
+        "text": "c. {GH, HI, IG}",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "4": {
+        "text": "d. {GH,HG,HI,H,IG}",
+        "images": []
+      }
+    },
+    "correctAnswer": 3
+  },
+  {
+    "index": 10,
+    "question": "Cho quan hệ R(ABCD) và 2 tập pth F= {A ->C, D->B, C->ABD}; G= {A->C, D->B, C->A, C->B, C->D}. Hỏi F và G có tương đương nhau",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Có",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "2": {
+        "text": "b. Không",
+        "images": []
+      }
+    },
+    "correctAnswer": 1
+  },
+  {
+    "index": 11,
+    "question": "Cho F={ AB->C, D->EG, C->A, BE->C, BC->D}. Các phụ thuộc hàm có thuộc tính dư thừa ở vế trái là:",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. AB->C; BE->C",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      },
+      "2": {
+        "text": "b. BE->C",
+        "images": []
+      },
+      "3": {
+        "text": "c. Các đáp án đưa ra đều sai",
+        "images": []
+      },
+      "4": {
+        "text": "d. BC->D",
+        "images": []
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 12,
+    "question": "Cho quan hệ R=ABCD và F= {A->C, D->B, C->ABD}. Có phụ thuộc hàm có vế trái dư thừa không",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Không",
+        "images": []
+      },
+      "2": {
+        "text": "b. Có",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 13,
+    "question": "Xét lược đồ quan hệ  với tập phụ thuộc hàm F = {MSKHTENKH,TP; MSMH TENMH,ĐG; MSKH,MSMH SL; MSMHTENMH}. Phụ thuộc hàm nào sau đây là dư thừa đối với tập F?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. MSKH,MSMH SL",
+        "images": []
+      },
+      "2": {
+        "text": "b. MSMHTENMH",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "3": {
+        "text": "c. MSMH TENMH,ĐG",
+        "images": []
+      },
+      "4": {
+        "text": "d. MSKHTENKH,TP",
+        "images": []
+      }
+    },
+    "correctAnswer": 2
+  },
+  {
+    "index": 14,
+    "question": "Cho lược đồ quan hệ: =<U,F> U={A,B,C,D,E,G,H} F={BH->CA, H->BG, GH->AD, DH->CG }. Các phụ thuộc hàm có thuộc tính dư thừa ở vế trái?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. BH->CA; GH->AD; DH->CG",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "2": {
+        "text": "b. BH->CA; GH->AD",
+        "images": []
+      },
+      "3": {
+        "text": "c. Không có phụ thuộc hàm có thuộc tính dư thừa ở vế trái",
+        "images": []
+      },
+      "4": {
+        "text": "d. BH->CA;",
+        "images": []
+      }
+    },
+    "correctAnswer": 1
+  },
+  {
+    "index": 15,
+    "question": "Cho F={AB->C, D->E, D->G, C->A, BE->C, BC->D, CG->B, CG->D, CD->B} Phụ thuộc hàm AB->C có bị dư thừa vế trái?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Không dư thừa",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "2": {
+        "text": "b. Dư thừa thuộc tính A",
+        "images": []
+      },
+      "3": {
+        "text": "c. Dư thừa thuộc tính B",
+        "images": []
+      },
+      "4": {
+        "text": "d. Tất cả các đáp án đều sai",
+        "images": []
+      }
+    },
+    "correctAnswer": 1
+  },
+  {
+    "index": 16,
+    "question": "Cho tập pth F={A ->B, A ->C, B ->A, B ->C, C ->A, C-> B}. Phủ tối thiểu của F là",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. {A->B, B->A, B->C, C->B, C->A}",
+        "images": []
+      },
+      "2": {
+        "text": "b. {B-> A, B-> C, C-> A, C-> B}.",
+        "images": []
+      },
+      "3": {
+        "text": "c. {A->B, B->A, B->C, C->B}",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "4": {
+        "text": "d. {A-> B, A-> C, B-> A, B-> C}",
+        "images": []
+      }
+    },
+    "correctAnswer": 3
+  },
+  {
+    "index": 17,
+    "question": "Cho F={ AB->C, D->EG, C->A, BE->C, BC->D, CG->BD, ACD->B} Các phụ thuộc hàm có thuộc tính dư thừa ở vế trái?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Không có phụ thuộc hàm có thuộc tính dư thừa ở vế trái",
+        "images": []
+      },
+      "2": {
+        "text": "b. ACD->B",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "3": {
+        "text": "c. BE->C; ACD->B; CG->BD",
+        "images": []
+      },
+      "4": {
+        "text": "d. AB->C; BE->C; ACD->B",
+        "images": []
+      }
+    },
+    "correctAnswer": 2
+  },
+  {
+    "index": 18,
+    "question": "Cho lược đồ quan hệ R(A,B,C,D,E,G) với tập cỏc phụ thuộc hàm F ={AB-->C, C-->B, ABD-->E, G-->A, A-->B, B-->E, D-->A, D-->B}. Cỏc phụ thuộc hàm nxzào sau đõy là dư thừa đối với F?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. B-->E",
+        "images": []
+      },
+      "2": {
+        "text": "b. D-->A",
+        "images": []
+      },
+      "3": {
+        "text": "c. A-->B",
+        "images": []
+      },
+      "4": {
+        "text": "d. ABD-->E và D-->B",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      }
+    },
+    "correctAnswer": 4
+  },
+  {
+    "index": 19,
+    "question": "Cho lược đồ quan hệ: =<U,F> U={A,B,C,D,E,G,H}F={H->C, H->B, H->A, H->G, H->D }. Các phụ thuộc hàm bị dư thừa trong tập F là:",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. H->A;",
+        "images": []
+      },
+      "2": {
+        "text": "b. H->C; H->A; H->G",
+        "images": []
+      },
+      "3": {
+        "text": "c. H->C; H->D",
+        "images": []
+      },
+      "4": {
+        "text": "d. Không có phụ thuộc hàm dư thừa",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      }
+    },
+    "correctAnswer": 4
+  },
+  {
+    "index": 20,
+    "question": "Cho hai tập phụ thuộc hàm sau: F ={AB->C, B->C, CD->E ,D->E }và G ={AB->C, B->C, C->B, BD->E }",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. F và G phụ thuộc nhau",
+        "images": []
+      },
+      "2": {
+        "text": "b. F và G độc lập nhau",
+        "images": []
+      },
+      "3": {
+        "text": "c. F và G tương đương",
+        "images": []
+      },
+      "4": {
+        "text": "d. F và G không tương đương",
+        "images": [
+          "data:image/png;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      }
+    },
+    "correctAnswer": 4
+  }
+]
