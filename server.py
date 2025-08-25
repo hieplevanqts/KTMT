@@ -31,6 +31,11 @@ def get_json_files():
                 return jsonify([]), 500
     return jsonify([]), 404
 
+@app.route('/json/<path:filename>')
+def serve_json(filename):
+    """Phục vụ các file JSON từ thư mục 'json'."""
+    return send_from_directory('json', filename)
+    
 # API endpoint để thêm môn học và cập nhật file_list.json
 @app.route('/api/add-subject', methods=['POST'])
 def add_subject():
