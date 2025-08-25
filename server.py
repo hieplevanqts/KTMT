@@ -187,4 +187,4 @@ def export_json():
         return jsonify({"success": False, "message": f"Lỗi xử lý: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)
