@@ -717,7 +717,7 @@
             timeLeft: 60 * 60,
             userAnswers: {},
           };
-
+          this.baseUrl = 'http://127.0.0.1:5001';
           this.init();
         }
 
@@ -762,7 +762,7 @@
 
         async loadFileList() {
           try {
-            const res = await fetch("file_list.json");
+            const res = await fetch(`${this.baseUrl}/file_list.json`);
             if (!res.ok) {
               console.error(`Error loading file_list.json: ${res.status} ${res.statusText}`);
               return;
@@ -788,7 +788,7 @@
         async loadQuiz(fileName) {
           console.log(`Loading quiz data from: json/${fileName}`);
           try {
-            const res = await fetch(`json/${fileName}`);
+            const res = await fetch(`${this.baseUrl}/json/${fileName}`);
             if (!res.ok) {
               console.error(`Error loading json/${fileName}: ${res.status} ${res.statusText}`);
               this.state.allQuizData = [];
