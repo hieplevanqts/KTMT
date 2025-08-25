@@ -16,7 +16,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Mở port 5000 để nhận yêu cầu từ bên ngoài
-EXPOSE 5000
+EXPOSE 5001
 
 # Lệnh mặc định để khởi chạy ứng dụng bằng Gunicorn, chỉ rõ file server.py và biến app
 CMD ["gunicorn", "--bind", "0.0.0.0:5001", "server:app"]
