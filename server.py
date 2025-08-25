@@ -16,7 +16,7 @@ CORS(app)
 def serve_tool_html():
     return send_from_directory(os.path.abspath(os.path.dirname(__file__)), 'tool.html')
 @app.route('/home')
-def serve_tool_html():
+def serve_home_html():
     return send_from_directory(os.path.abspath(os.path.dirname(__file__)), 'index.html')
 # API endpoint để lấy danh sách các file JSON từ file_list.json
 @app.route('/api/files')
