@@ -32,7 +32,11 @@ def get_json_files():
     return jsonify([]), 404
 
 @app.route('/json/<path:filename>')
-list_file_path = os.path.join(os.path.dirname(__file__), filename)
+
+current_dir = os.path.dirname(__file__)
+# Nối thêm thư mục 'json' vào đường dẫn
+json_dir = os.path.join(current_dir, 'json')
+list_file_path = os.path.join(json_dir, filename)
     if os.path.exists(list_file_path):
         with open(list_file_path, 'r', encoding='utf-8') as f:
             try:
