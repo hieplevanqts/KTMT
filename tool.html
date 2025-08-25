@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form nhập HTML</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fefefe;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        label, textarea, button, select, .form-group-inline {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        textarea, select, input[type="text"] {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        textarea:focus, select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+        textarea {
+            height: 200px;
+            resize: vertical;
+        }
+        .form-group-inline {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        .form-group-inline > * {
+            flex-grow: 1;
+        }
+        button {
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .message-box {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #007BFF;
+            background-color: #eaf5ff;
+            border-radius: 8px;
+            white-space: pre-wrap;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            padding-top: 60px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal.is-visible {
+            display: block;
+            opacity: 1;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 25px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .modal-title {
+            margin-top: 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .close-button {
+            color: #999;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            transition: color 0.3s;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #555;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: none;
+        }
+        /* Cập nhật form trong modal */
+        #modal-form button {
+            margin-top: 15px;
+        }
+        /* CSS cho modal thông báo */
+        #status-modal .modal-content {
+            text-align: center;
+        }
+        #status-modal #modal-status-ok-btn {
+            width: auto;
+            margin-top: 20px;
+            padding: 10px 20px;
+        }
+        #modal-status-title {
+            color: #4CAF50;
+        }
+        #modal-status-title.error {
+            color: #f44336;
+        }
+        /* Chiều rộng đầy đủ cho input tên môn học */
+        #subject-name {
+            width: 100%;
+        }
+        /* MỚI THÊM: Bỏ border và box-shadow của form trong modal */
+        #modal-form {
+            border: none;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="html-form">
+        <h2>Nhập chuỗi HTML</h2>
+        <label for="html-code">Vui lòng nhập mã HTML vào ô bên dưới:</label>
+        <textarea id="html-code" name="htmlCode" placeholder="Ví dụ: <p>Đây là một đoạn văn bản</p>"></textarea>
+        
+        <label for="file-select">Chọn một tệp JSON:</label>
+        <small style="display:block; margin-top:-5px; margin-bottom:10px; color:#666;">Chọn môn cần cập nhật câu hỏi, nếu chưa tồn tại câu hỏi thì sẽ thêm câu hỏi vào môn, nếu đã tồn tại thì sẽ lọc trùng và ưu tiên giữ lại các câu hỏi đã có đáp án đúng. Nếu chưa có môn học trong danh sách thì hãy thêm môn học ở nút bên cạnh.</small>
+        <div class="form-group-inline">
+            <select id="file-select" name="fileSelect">
+                <option value="">Đang tải danh sách file...</option>
+            </select>
+            <button type="button" id="add-subject-btn"><i class="fas fa-plus-circle"></i>Thêm Môn</button>
+        </div>
+        
+        <button type="submit"><i class="fas fa-paper-plane"></i>Gửi đi</button>
+    </form>
+
+    <div id="result-box" class="message-box" style="display: none;">
+        <h3>Kết quả nhận được:</h3>
+        <pre id="display-code"></pre>
+    </div>
+
+    <div id="add-subject-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 class="modal-title">Thêm Tên Môn</h2>
+            <form id="modal-form">
+                <label for="subject-name">Tên môn:</label>
+                <input type="text" id="subject-name" name="subjectName" placeholder="Ví dụ: toan_cao_cap" required>
+                <div id="validation-error" class="error-message"></div>
+                <button type="submit">Lưu</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="status-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-status-title"></h2>
+            <p id="modal-status-message"></p>
+            <button id="modal-status-ok-btn">OK</button>
+        </div>
+    </div>
+
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Xác nhận</h2>
+            <p id="confirm-message">Bạn hãy xem kỹ lại đã chọn đúng môn hay chưa ???</p>
+            <p style="text-align: center; font-weight: bold; color: #f44336;"><span id="countdown">10</span> giây để xác nhận</p>
+            <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                <button type="button" id="confirm-cancel-btn" style="background-color: #999;">Hủy</button>
+                <button type="button" id="confirm-ok-btn" disabled>OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const selectElement = document.getElementById('file-select');
+        const statusModal = document.getElementById('status-modal');
+        const statusTitle = document.getElementById('modal-status-title');
+        const statusMessage = document.getElementById('modal-status-message');
+        const okButton = document.getElementById('modal-status-ok-btn');
+
+        const confirmModal = document.getElementById('confirm-modal');
+        const confirmOkBtn = document.getElementById('confirm-ok-btn');
+        const confirmCancelBtn = document.getElementById('confirm-cancel-btn');
+        const countdownSpan = document.getElementById('countdown');
+
+        let countdownInterval;
+
+        function showStatusModal(isSuccess, title, message) {
+            statusTitle.textContent = title;
+            statusMessage.textContent = message;
+            
+            if (isSuccess) {
+                statusTitle.classList.remove('error');
+                statusTitle.style.color = '#4CAF50';
+            } else {
+                statusTitle.classList.add('error');
+                statusTitle.style.color = '#f44336';
+            }
+            
+            statusModal.classList.add('is-visible');
+        }
+
+        async function fetchFiles() {
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/files');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const files = await response.json();
+                selectElement.innerHTML = '';
+                if (files.length > 0) {
+                    files.forEach(file => {
+                        const option = document.createElement('option');
+                        option.value = file;
+                        option.textContent = file;
+                        selectElement.appendChild(option);
+                    });
+                } else {
+                    const option = document.createElement('option');
+                    option.textContent = 'Không có tệp tin nào.';
+                    selectElement.appendChild(option);
+                }
+            } catch (error) {
+                console.error('Lỗi khi tải danh sách file:', error);
+                selectElement.innerHTML = '<option>Lỗi khi tải danh sách tệp.</option>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchFiles);
+        
+        async function submitFormData() {
+            const htmlCode = document.getElementById('html-code').value;
+            const selectedFile = document.getElementById('file-select').value;
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/export-json', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        htmlCode: htmlCode,
+                        selectedFile: selectedFile
+                    })
+                });
+                
+                const result = await response.json();
+                showStatusModal(result.success, result.success ? 'Thành công' : 'Thất bại', result.message);
+
+                if (result.success) {
+                    document.getElementById('html-form').reset();
+                    fetchFiles();
+                }
+            } catch (error) {
+                console.error('Lỗi khi gửi dữ liệu:', error);
+                showStatusModal(false, 'Lỗi', 'Đã xảy ra lỗi khi kết nối với server.');
+            }
+        }
+
+        document.getElementById('html-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const htmlCode = document.getElementById('html-code').value;
+
+            if (!htmlCode) {
+                showStatusModal(false, 'Thất bại', 'Vui lòng nhập nội dung HTML.');
+                return;
+            }
+
+            confirmModal.classList.add('is-visible');
+            
+            let timeLeft = 10;
+            countdownSpan.textContent = timeLeft;
+            confirmOkBtn.disabled = true;
+
+            countdownInterval = setInterval(() => {
+                timeLeft -= 1;
+                countdownSpan.textContent = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownSpan.textContent = "Bạn có thể xác nhận ngay!";
+                    confirmOkBtn.disabled = false;
+                }
+            }, 1000);
+        });
+
+        confirmOkBtn.addEventListener('click', () => {
+            clearInterval(countdownInterval);
+            confirmModal.classList.remove('is-visible');
+            submitFormData();
+        });
+
+        confirmCancelBtn.addEventListener('click', () => {
+            clearInterval(countdownInterval);
+            confirmModal.classList.remove('is-visible');
+        });
+
+        const addSubjectBtn = document.getElementById('add-subject-btn');
+        const modal = document.getElementById('add-subject-modal');
+        const closeModalBtn = document.querySelector('.close-button');
+        const modalForm = document.getElementById('modal-form');
+        const subjectInput = document.getElementById('subject-name');
+        const errorDiv = document.getElementById('validation-error');
+
+        addSubjectBtn.addEventListener('click', () => {
+            modal.classList.add('is-visible');
+            subjectInput.value = '';
+            errorDiv.style.display = 'none';
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.remove('is-visible');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                modal.classList.remove('is-visible');
+            }
+            if (event.target == statusModal) {
+                statusModal.classList.remove('is-visible');
+            }
+            if (event.target == confirmModal) {
+                clearInterval(countdownInterval);
+                confirmModal.classList.remove('is-visible');
+            }
+        });
+
+        okButton.addEventListener('click', () => {
+            statusModal.classList.remove('is-visible');
+        });
+
+        modalForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const subjectName = subjectInput.value.trim();
+            const validRegex = /^[a-zA-Z0-9_]*$/;
+
+            errorDiv.style.display = 'block';
+
+            if (!subjectName) {
+                errorDiv.textContent = 'Tên môn không được để trống.';
+            } else if (!validRegex.test(subjectName)) {
+                errorDiv.textContent = 'Tên môn chỉ được chứa chữ cái, số, và dấu gạch dưới (_). Không có khoảng trắng, ký tự đặc biệt hay tiếng Việt.';
+            } else {
+                try {
+                    const response = await fetch('http://127.0.0.1:5000/api/add-subject', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ subjectName: subjectName })
+                    });
+                    
+                    const result = await response.json();
+
+                    if (result.success) {
+                        showStatusModal(true, 'Thành công', result.message);
+                        modal.classList.remove('is-visible');
+                        fetchFiles();
+                    } else {
+                        showStatusModal(false, 'Thất bại', result.message);
+                        errorDiv.textContent = result.message;
+                    }
+                } catch (error) {
+                    console.error('Lỗi khi thêm môn học:', error);
+                    showStatusModal(false, 'Lỗi', 'Đã xảy ra lỗi khi kết nối với server.');
+                    errorDiv.textContent = 'Đã xảy ra lỗi khi kết nối với server.';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -522,6 +522,9 @@
         .exam-nav-btn {
             right: 15px;
         }
+        .custom-btn{
+          width: 100%
+        }
       }
 
       /* Keyframe Animations */
@@ -556,6 +559,21 @@
       .exam-options label.user-incorrect input[type="radio"] + span {
           color: var(--text-color) !important;
       }
+      .custom-btn {
+        background-color: #007bff; /* Màu nền xanh dương */
+        color: #fff; /* Màu chữ trắng */
+        padding: 5px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+      }
+
+    .custom-btn:hover {
+      background-color: #0056b3; /* Màu nền đậm hơn khi di chuột qua */
+    }
+ 
     </style>
   </head>
   <body>
@@ -563,6 +581,7 @@
       <header>
         <h1>Quiz App</h1>
         <button id="examModeBtn">Thi thử</button>
+        <a href="tool.html" class="custom-btn">Thêm câu hỏi</a>
       </header>
       <div class="controls">
         <label for="fileSelect">Chọn bộ câu hỏi:</label>
@@ -570,8 +589,7 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="Tìm câu hỏi..."
-        />
+          placeholder="Tìm câu hỏi..." />
       </div>
 
       <div id="index-bar"></div>
@@ -580,8 +598,10 @@
     </div>
 
     <div id="examModal" class="modal">
-        <button id="examScrollTopBtn" class="exam-nav-btn" style="display: none;">⬆</button>
-        <button id="examScrollBottomBtn" class="exam-nav-btn" style="display: none;">⬇</button>
+      <button id="examScrollTopBtn" class="exam-nav-btn"
+        style="display: none;">⬆</button>
+      <button id="examScrollBottomBtn" class="exam-nav-btn"
+        style="display: none;">⬇</button>
       <div class="modal-content">
         <div class="modal-header">
           <h2>Bài thi thử</h2>
@@ -590,11 +610,12 @@
         <div class="modal-body">
           <div class="timer" id="countdownTimer">60:00</div>
           <div id="exam-questions-container">
-            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary" id="submitExamBtn">Nộp bài</button>
-          <button class="btn btn-primary" id="viewScoreBtn" style="display: none;">Xem điểm</button>
+          <button class="btn btn-primary" id="viewScoreBtn"
+            style="display: none;">Xem điểm</button>
           <button class="btn btn-secondary" id="cancelExamBtn">Hủy</button>
         </div>
       </div>
@@ -611,12 +632,13 @@
           <p class="score-value" id="finalScore">0/10</p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" id="viewAnswersBtn">Xem đáp án đúng</button>
+          <button class="btn btn-secondary" id="viewAnswersBtn">Xem đáp án
+            đúng</button>
           <button class="btn btn-primary" id="okScoreModal">OK</button>
         </div>
       </div>
     </div>
-    
+
     <div id="confirmSubmitModal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
@@ -624,7 +646,8 @@
           <span class="close-button" id="closeConfirmModal">&times;</span>
         </div>
         <div class="modal-body">
-          <p>Bạn có chắc chắn muốn nộp bài thi không? Sau khi nộp, bạn sẽ không thể thay đổi đáp án.</p>
+          <p>Bạn có chắc chắn muốn nộp bài thi không? Sau khi nộp, bạn sẽ không
+            thể thay đổi đáp án.</p>
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" id="cancelSubmitBtn">Hủy</button>
@@ -635,7 +658,6 @@
 
     <button id="scrollTopBtn" onclick="scrollToTop()">⬆</button>
     <button id="scrollBottomBtn" onclick="scrollToBottom()">⬇</button>
-
 
     <script>
       class QuizApp {

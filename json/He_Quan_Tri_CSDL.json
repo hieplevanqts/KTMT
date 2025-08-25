@@ -1,0 +1,779 @@
+[
+  {
+    "index": 1,
+    "question": "Lệnh sửa đổi 1 thủ tục có tên là prcPrintStoreList như sau:ALTER PROCEDURE prcPrintStoreList @state char(15)ASBEGINIF EXISTS(SELECT * FROM Stores WHERE state=@state)BEGINPRINT 'List of Stores'SELECT stor_id,stor_name, stor_address,cityFROM Stores WHERE state = stateReturn 0ENDELSEBEGINPRINT 'No Records Found for given state'RETURN 1ENDENDHãy xác định kết quả sửa đổi này",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. 1",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      },
+      "2": {
+        "text": "b. Lỗi khi chạy thủ tục (Run-time error )",
+        "images": []
+      },
+      "3": {
+        "text": "c. Lỗi biên dịch ( Compile-time error )",
+        "images": []
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 2,
+    "question": "Xác định ý nghĩa thủ tục sau:CREATE PROC get_playername @sport_id varchar(10)ASSELECT player_lname, player_fnameFROM sports WHERE sport_id = @sport_id",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Thủ tục có 1 tham số vào là sport_id và sẽ hiển thị tên vận động viên (player) mà có Id không bằng với tham số đầu vào",
+        "images": []
+      },
+      "2": {
+        "text": "b. Thủ tục có 1 tham số vào là sport_id và sẽ hiển thị tên các môn thể thao mà có Id bằng với tham số đầu vào",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      },
+      "3": {
+        "text": "c. Thủ tục có 1 tham số vào là sport_id và sẽ hiển thị tên các môn thể thao mà có Id không bằng với tham số đầu vào",
+        "images": []
+      },
+      "4": {
+        "text": "d. Thủ tục có 1 tham số vào là sport_id và sẽ hiển thị tên vận động viên (player) mà có Id bằng với tham số đầu vào",
+        "images": []
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 3,
+    "question": "Cho bảng tblSANPHAM(sMaSP, sTenSP, iSoluong, fDongia, sXuatSu). Đâu là thủ tục để cho tên sản phẩm theo một xuất sứ nào đó với xuất sứ là tham số truyền vào",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. CREATE PROC spTenSP As BEGIN Select sTenSP From tblSANPHAM Where sXuatSu = N’Đức’ END",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      },
+      "2": {
+        "text": "b. CREATE PROC spTenSP As BEGIN Declare nvarchar @xs Select sTenSP From tblSANPHAM Where sXuatSu = @xs END",
+        "images": []
+      },
+      "3": {
+        "text": "c. CREATE PROC spTenSP(nvarchar @xs) As BEGIN Select * From tblSANPHAM Where sXuatSu = @xs END",
+        "images": []
+      },
+      "4": {
+        "text": "d. CREATE PROC spTenSP(nvarchar @xs) As BEGIN Select sTenSP From tblSANPHAM Where sXuatSu = @xs END",
+        "images": []
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 4,
+    "question": "Quy luật nào sau đây không đúng đối với một thủ tục (stored procedure).",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Bạn có thể tạo, tạo lại, hay xóa các đối tượng bên trong 1 thủ tục  Các lệnh mà bạn có thể sử dụng là CREATE, DROP, và SELECT INTO trong thủ tục của bạn",
+        "images": []
+      },
+      "2": {
+        "text": "b. Bạn có thể tham chiếu đến 1 đối tượng không nằm trong cùng 1 database với thủ tục của bạn",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      },
+      "3": {
+        "text": "c. Bạn có thể tạo một bảng tạm riêng bên trong 1 thủ tục",
+        "images": []
+      },
+      "4": {
+        "text": "d. Bạn có thể thực thi 1 thủ tục mà thủ tục này gọi 1 thủ tục khác.  Thủ tục được gọi có thể truy xuất đến các đối tượng được tạo ra bởi thủ tục gọi",
+        "images": []
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 5,
+    "question": "Cho bảng tblSANPHAM(sMaSP, sTenSP, iSoluong, fDongia, sXuatSu) và tblCTHOADON (sMaHD, sMaSP, iSLM), tblHOADON(dNgaylap, sMaHD, sSdtKH, sMaNV) Đâu là thủ tục để cho danh sách tên sản phẩm KHÔNG được bán trong một năm nào đó?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. CREATE PROC spTenSP(int @y) As BEGIN Select sTenSP From tblSANPHAM as A, tblCTHOADON as B, tblHOADON as C Where year(dNgayLap) = @y and A.sMaSP = B.sMaSP and B.sMaHD = C.sMaHD END",
+        "images": []
+      },
+      "2": {
+        "text": "b. CREATE PROC spTenSP(int @y) As BEGIN Select sTenSP From tblSANPHAM Where sMaSP not in (Select sMaSP from tblCTHOADON as A, tblHOADON as B Where year(dNgayLap) = @y and A.sMaHD = B.sMaHD) END",
+        "images": []
+      },
+      "3": {
+        "text": "c. CREATE PROC spTenSP As BEGIN Declare int @y Select sTenSP From tblSANPHAM Where sMaSP not in (Select sMaSP from tblCTHOADON as A, tblHOADON as B Where year(dNgayLap) = @y and A.sMaHD = B.sMaHD) END",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      },
+      "4": {
+        "text": "d. CREATE PROC spTenSP As BEGIN Declare int @y Select sTenSP From tblSANPHAM as A, tblCTHOADON as B, tblHOADON as C Where year(dNgayLap) = @y and A.sMaSP = B.sMaSP and B.sMaHD = C.sMaHD END",
+        "images": []
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 6,
+    "question": "Cho bảng tblNHANVIEN(sMaNV, sHoten, sGioitinh, fHSL, sQuequan). Đâu là câu truy vấn để cho danh sách tên của các nhân có hệ số lương trên 3.66",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Select * From tblNHANVIEN Where fHSL>3.66",
+        "images": []
+      },
+      "2": {
+        "text": "b. Select sHoten From tblNHANVIEN Where fHSL>3.66",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "3": {
+        "text": "c. Select sHoten From tblNHANVIEN",
+        "images": []
+      },
+      "4": {
+        "text": "d. Select sHoten, fHSL From tblNHANVIEN Where fHSL>3.66",
+        "images": []
+      }
+    },
+    "correctAnswer": 2
+  },
+  {
+    "index": 7,
+    "question": "Cho bảng tblSANPHAM(sMaSP, sTenSP, iSoluong, fDongia, sXuatSu). Đâu là câu truy vấn để cho danh sách tên các sản phẩm có đơn giá từ 50000 đến 100000",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Select * From tblSANPHAM Where fDongia between 50000 and 100000",
+        "images": []
+      },
+      "2": {
+        "text": "b. Select sTenSP From tblSANPHAM Where fDongia>50000",
+        "images": []
+      },
+      "3": {
+        "text": "c. Select sTenSP From tblSANPHAM Where fDongia>50000 and fDongia<100000",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      },
+      "4": {
+        "text": "d. Select sTenSP From tblSANPHAM Where fDongia between 50000 and 100000",
+        "images": []
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 8,
+    "question": "Biến @a nhận giá trị nào khi khối lệnh sau được thực thi? DECLARE @a int BEGIN select @a= @a + 1 END select @a  1  0  Tất cả đều sai",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. 1",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      },
+      "2": {
+        "text": "b. 0",
+        "images": []
+      },
+      "3": {
+        "text": "c. NULL",
+        "images": []
+      },
+      "4": {
+        "text": "d. Tất cả đều sai",
+        "images": []
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 9,
+    "question": "Cho CSDL quản lý sản phẩm với bảng tblNHANVIEN gồm các dòng dữ liệu: Cho biết kết quả của câu lệnh truy vấn sau: Select sHoten From tblNHANVIEN Where sGioitinh = N’Nam’",
+    "question_images": [
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVUAAABrCAYAAADHCxFHAAAgAElEQVR4Ae3dBbh1W1U3cEopCSlBkJIWyYuEggjSSjd6CelQQrAQBBVFGgFBpLtDFCwaDLoxEKSRsgOE9T2/9dz/+ca77qpd5+yz7xnPc96991pzzTVjjP+IOeZ8T9Yc0dEIHI3A0QgcjcDaRuBka6vpqKKjETgagaMROBqB5ghUj5jgaASORuBoBNY4Anug+o1vfKP54Ac/2PzlX/7lzv194AMfaN773vfuXL8O81x96EMfat797nef5Obkwx/+cPPXf/3XW9nvv/mbv2m07zDz1X63Ha78y7/8yzGQvAeqf/VXf9Vc6lKXau52t7vt3N9xxx3X/PiP//jO9eswz9UP/uAPNje84Q1PcnNy4QtfuDn++OO3st+3ve1tm4te9KJb2bZt5fVrXvOazW//9m/3g+qf/MmfND//8z9/zM1d+fEbv/Ebzatf/epd6c5O9OO+971v8653vWsn+rJIJ37qp36q+a//+q9FHtm3sl/96leb29/+9vv2vl140Stf+crmwQ9+8DFd2bNU/+zP/qz5uZ/7uWNu7sqPhzzkIc2LXvSiXenOTvTjXve6V/PmN795J/qySCduc5vbNF/84hcXeWTfyn7yk59sgP4RzR+BF7zgBc1DH/rQYx5YGVTf//73N29/+9sb4YPPfOYzx1T+P//zP404DYvkrW99a/Ov//qvx9zPj3/6p39q3vjGN7Z1fO5zn8vlNubmOfX7E4MTj3rf+97XlvnP//zP5h3veEcrnH//93+/91z3yzaC6je/+c12bMSA9Ev/MLX++G3cXDOGu0irgupf/MVfNL/3e7/XPPvZz27w4Be+8IUmvOPexz72sdFhw0PGt4/+7d/+rfmjP/qj5utf/3rf7fbat7/97Xae3vnOdy4EklOg+t///d/Nq171qualL33pHi+QLTzxiU98opWj8Iu4NALSz33uc5sXvvCFzac+9anm85//fNv2t7zlLe1zntfOKV7aBKiS+Ze//OXtXPk0trtEGwFVk3We85ynOdnJTtZc5jKXaYBF6DGPeUx73b3f+Z3faf793/89t475BIhinsqd//zn3wPn17/+9c0FL3jB5mUve1nzsIc9rL1/ilOconnDG97QPs+NoiW+53u+p2WeYyotP7YRVP/v//6v0b8znelMbb9+6Zd+qe334x//+Pb3KU95yub5z39+87//+7+lJyf++prXvKb5yEc+cuIbW35lWVAFlj/8wz/cxv6e/OQnN09/+tObm9zkJs13f/d3N3/+53/eggk+uspVrjI4At/61reac5/73O04Z5Hh05/+dAtkHvqDP/iD9p65GCKg+oAHPKAt94hHPGKo2Imuj4EqwLnSla7U/MiP/Ehz5jOfuTnLWc7S1n/a0562+cM//MNW6d7sZjdrr13sYhdrF18plEte8pLNk570pBa4LnGJSzS/8Au/0BoweMpYnPGMZ2xe+9rXTvLSukH1da97XSvPZPupT31qc73rXa+5wAUu0PzxH//xicblsF5YG6jKFKh073vfuzn96U/fTmAGjBV5oxvdqPmu7/qu9joNWolGrmTST37yk7dlr3rVqzZ5x4Me9KC2GEEAuJgk73DDZBGsMdomUO1aCxYH9Yllilhbfp/tbGdrAG+lbizOM2c961mb97znPbXYpPAcU/iAfswF1aqk//mf/7k53/nO147P3/7t3+61nOIBtC9+8YsbYPeEJzxhT/GmUOU3ZShqfIOvzMm1rnWt5md+5mfa4jwuiw8swzF6xSte0bblcY973FixY+6NgSrL2dz/+q//evPRj360tVj9ZliEtNk1i13o1re+dQvAua9NxhbhC2WB7hxaFVQrb/MEGAbf+73fu8ePxvr7vu/7mlOd6lStdzGnTbXOWv4//uM/9n6qdw515WfOM1NlVgZVwGiF0CLDLW95y0ZgG7FI73nPe7YT+BM/8RPtNQHcX/mVX2kufvGLt9fjjr3pTW9q7n//+7fPqyvxJe4OjR+rN4yhjli4j3rUo9q6fuzHfqx9B+C+053uNBhWaAs1TbMNoKoP+nS/+92vVTYsDBRQ5dIhbixBOMc5zrHXL0Iu1nWHO9yh/fva177W/N3f/V1zznOesy3LAhAmAciAQdlYWb/2a7/W3OAGN2gop2tf+9qN1UpW2UHTFKhKVcFjyt3xjndsm/vIRz6y7S/Lp0sf//jH25RAfHS7291ur//G+eY3v3nz0z/90+3YA1djDdwe+MAHNnjorne9a1sv6+9Xf/VXW69IeW6zMIDxZThYxLniFa+4B9gveclL2udufOMbNz/5kz/Zeltd46HbziFQFWowT+b+B37gB5p//Md/bC1Tv2UMhGJF6yOy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"
+    ],
+    "options": {
+      "1": {
+        "text": "a.",
+        "images": [
+          "data:image/png;base64,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",
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      },
+      "2": {
+        "text": "b.",
+        "images": [
+          "data:image/png;base64,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"
+        ]
+      },
+      "3": {
+        "text": "c.",
+        "images": [
+          "data:image/png;base64,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"
+        ]
+      },
+      "4": {
+        "text": "d.",
+        "images": [
+          "data:image/png;base64,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"
+        ]
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 10,
+    "question": "Độ lớn của một cột kiểu CHAR?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. 8 bytes",
+        "images": []
+      },
+      "2": {
+        "text": "b. 1 byte",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "3": {
+        "text": "c. 2 bytes",
+        "images": []
+      },
+      "4": {
+        "text": "d. 4 bytes",
+        "images": []
+      }
+    },
+    "correctAnswer": 2
+  },
+  {
+    "index": 11,
+    "question": "Cho đoạn mã tạo trigger: CREATE TRIGGER  NV_GT ON  NHANVIEN INSTEAD OF INSERT As BEGIN declare @Gt as nvarchar(3) select @gt = GT from INSERTED if ( @gt  not in ('Nam', N'Nữ') ) Raiserror('Ban nhap sai Gioi tinh',16,10) END Cho biết ý nghĩa của đoạn mã",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Tất cả các phương án đều đúng",
+        "images": []
+      },
+      "2": {
+        "text": "b. Tạo trigger kiểm tra giới tính nhập vào cho bảng NHANVIEN chỉ nhập từ Nam hoặc Nữ, nếu nhập sai đươc ra thông báo “Bạn nhập sai Giới tính”",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "3": {
+        "text": "c. Tạo trigger kiểm tra giới tính nhập vào cho bảng NHANVIEN",
+        "images": []
+      },
+      "4": {
+        "text": "d. Tạo trigger kiểm tra giới tính nhập vào cho bảng NHANVIEN không được nhập giá trị “Nam” hoặc”Nữ”",
+        "images": []
+      }
+    },
+    "correctAnswer": 2
+  },
+  {
+    "index": 12,
+    "question": "Các trường hợp nào bắt buộc phải sử dụng trigger?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Tất cả các phương án đều đúng",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "2": {
+        "text": "b. Các ràng buộc mà không thể mô tả khi định nghĩa bảng",
+        "images": []
+      },
+      "3": {
+        "text": "c. Khi có sự thay đổi dữ liệu ở 1 bảng và muốn dữ liệu trên một số bảng khác liên quan tự động thay đổi theo",
+        "images": []
+      }
+    },
+    "correctAnswer": 1
+  },
+  {
+    "index": 13,
+    "question": "Cho CSDL quản lý bán hàng gồm hai bảng: tblKHACHHANG(sSdtKH, sTenKH, SoHoaDon) tblHOADON(dNgaylap, sMaHD, sSdtKH, sMaNV) Đoạn mã trigger để cho phép mỗi lần chèn thêm một hóa đơn mới thì tổng số hóa đơn của khách hàng được tăng lên tương ứng một đơn vị",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. CREATE TRIGGER ThemHoaDon ON tblHOADON Instead of update Begin Declare @soDT nvarchar(10) Select @soDT = sSDTKH From inserted Update tblKHACHHANG Set SoLanMua = SoLanMua + 1 Where sSdtKH = @soDT end",
+        "images": []
+      },
+      "2": {
+        "text": "b. CREATE TRIGGER ThemHoaDon ON tblHOADON Instead of Insert Begin Declare @soDT nvarchar(10) Update tblKHACHHANG Set SoLanMua = SoLanMua + 1 Where sSdtKH = @soDT end",
+        "images": []
+      },
+      "3": {
+        "text": "c. CREATE TRIGGER ThemHoaDon ON tblHOADON Instead of Insert Begin Declare @soDT nvarchar(10) Select @soDT = sSDTKH From inserted Update tblKHACHHANG Set SoLanMua = SoLanMua + 1 Where sSdtKH = @soDT end",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "4": {
+        "text": "d. CREATE TRIGGER ThemHoaDon ON tblHOADON Instead of Insert Begin Declare @soDT nvarchar(10) Select @soDT = sSDTKH From tblHOADON Update tblKHACHHANG Set SoLanMua = SoLanMua + 1 Where sSdtKH = @soDT end",
+        "images": []
+      }
+    },
+    "correctAnswer": 3
+  },
+  {
+    "index": 14,
+    "question": "Có mấy loại trigger?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. 5",
+        "images": []
+      },
+      "2": {
+        "text": "b. 2",
+        "images": []
+      },
+      "3": {
+        "text": "c. 3",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "4": {
+        "text": "d. 4",
+        "images": []
+      }
+    },
+    "correctAnswer": 3
+  },
+  {
+    "index": 15,
+    "question": "Cho các bảng LOP( malop, TenLop, NienKhoa, SiSo) SINHVIEN ( MaSV, Hoten, NS, GT, maLop) Viết trigger khi sưar một lớp nào đó thì các sinh viên thuộc lớp đó cũng sửa theo.",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. CREATE TRIGGER UpdateMaLop ON LOP FOR UPDATE AS BEGIN IF UPDATE( MaLop) BEGIN DECLARE @MaLopCu nvarchar(9), @MaLopMoi nvarchar(9) SELECT @MaLopCu =  MaLop FROM DELETED SELECT @MaLopMoi =   MaLop FROM INSERTED END END",
+        "images": []
+      },
+      "2": {
+        "text": "b. CREATE TRIGGER UpdateMaLop ON SINHVIEN FOR UPDATE AS BEGIN IF UPDATE( MaLop) BEGIN DECLARE @MaLopCu nvarchar(9), @MaLopMoi nvarchar(9) SELECT @MaLopCu =  MaLop FROM DELETED SELECT @MaLopMoi =   MaLop FROM INSERTED If ( EXISTS (select MaLop from SINHVIEN Where MaLop= @MaLopCu) ) UPDATE SINHVIEN SET MaLop = @MaLopMoi WHERE MaLop = @MaLopCu END END",
+        "images": []
+      },
+      "3": {
+        "text": "c. CREATE TRIGGER UpdateMaLop ON LOP FOR UPDATE AS BEGIN IF UPDATE( MaLop) BEGIN DECLARE @MaLopCu nvarchar(9), @MaLopMoi nvarchar(9) SELECT @MaLopCu =  MaLop FROM DELETED SELECT @MaLopMoi =   MaLop FROM INSERTED If ( EXISTS (select MaLop from SINHVIEN Where MaLop= @MaLopCu) ) UPDATE SINHVIEN SET MaLop = @MaLopMoi WHERE MaLop = @MaLopCu END END",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "4": {
+        "text": "d. CREATE TRIGGER UpdateMaLop ON LOP FOR UPDATE AS BEGIN IF UPDATE( MaLop) BEGIN SELECT @MaLopCu =  MaLop FROM DELETED SELECT @MaLopMoi =   MaLop FROM INSERTED If ( EXISTS (select MaLop from SINHVIEN Where MaLop= @MaLopCu) ) UPDATE SINHVIEN SET MaLop = @MaLopMoi WHERE MaLop = @MaLopCu END END",
+        "images": []
+      }
+    },
+    "correctAnswer": 3
+  },
+  {
+    "index": 16,
+    "question": "Hỗ trợ kiến trúc Client/Server (Supports Client/Server model) là gì?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Truy cập dữ liệu được lưu trữ trên Server",
+        "images": []
+      },
+      "2": {
+        "text": "b. Server có nhiệm vụ xử lý các yêu cầu và trả lại kết quả cho Client.",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      },
+      "3": {
+        "text": "c. Tất cả các phương án đều đúng",
+        "images": []
+      },
+      "4": {
+        "text": "d. Ứng dụng có thể chạy trên Client",
+        "images": []
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 17,
+    "question": "Có thể đặt mấy cột trong bảng làm khóa chính?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Trên 1 cột bất kỳ",
+        "images": []
+      },
+      "2": {
+        "text": "b. Trên nhiều cột",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "3": {
+        "text": "c. Trên 2 cột bất kỳ",
+        "images": []
+      },
+      "4": {
+        "text": "d. Chỉ trên cột ID",
+        "images": []
+      }
+    },
+    "correctAnswer": 2
+  },
+  {
+    "index": 18,
+    "question": "Dịch vụ chuyển đổi dữ liệu DTS của SQL Server thực hiện chức năng gì?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Chuyển dữ liệu giữa các Server",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "2": {
+        "text": "b. Tra cứu dữ liệu",
+        "images": []
+      },
+      "3": {
+        "text": "c. Nhân bản dữ liệu",
+        "images": []
+      },
+      "4": {
+        "text": "d. Tìm kiếm",
+        "images": []
+      }
+    },
+    "correctAnswer": 1
+  },
+  {
+    "index": 19,
+    "question": "Cấu hình nào sau đây được Windows cung cấp sẵn, dùng làm kết nối trung gian giữa ứng dụng và các hệ quản trị CSDL?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Kết nối mạng trên Server",
+        "images": []
+      },
+      "2": {
+        "text": "b. OLE DB",
+        "images": []
+      },
+      "3": {
+        "text": "c. Net-Library",
+        "images": []
+      },
+      "4": {
+        "text": "d. ODBC",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      }
+    },
+    "correctAnswer": 4
+  },
+  {
+    "index": 20,
+    "question": "Người dùng duyệt Web bằng phần mềm gì?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Web Browser",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "2": {
+        "text": "b. Web Page",
+        "images": []
+      },
+      "3": {
+        "text": "c. Web Site",
+        "images": []
+      },
+      "4": {
+        "text": "d. Web Server",
+        "images": []
+      }
+    },
+    "correctAnswer": 1
+  },
+  {
+    "index": 21,
+    "question": "Tập tin có phần mở rộng là .ndf được dùng để làm gì?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Ghi lại các thay đổi dữ liệu giúp thực hiện rollback khi cần",
+        "images": []
+      },
+      "2": {
+        "text": "b. Chỉ dùng khi cơ sở dữ liệu được phân chia chứa trên nhiều đĩa",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "3": {
+        "text": "c. Chứa dữ liệu chính",
+        "images": []
+      }
+    },
+    "correctAnswer": 2
+  },
+  {
+    "index": 22,
+    "question": "Thành phần nào sau đây thuộc phía Server trong mô hình Client – Server?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Network",
+        "images": []
+      },
+      "2": {
+        "text": "b. Database",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "3": {
+        "text": "c. DB Library Application",
+        "images": []
+      },
+      "4": {
+        "text": "d. OLE DB Application",
+        "images": []
+      }
+    },
+    "correctAnswer": 2
+  },
+  {
+    "index": 23,
+    "question": "Phần mềm nào sau đây không phải là một Web Browser?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. File Zilla",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "2": {
+        "text": "b. Opera",
+        "images": []
+      },
+      "3": {
+        "text": "c. Google Chrome",
+        "images": []
+      },
+      "4": {
+        "text": "d. Internet Explorer",
+        "images": []
+      }
+    },
+    "correctAnswer": 1
+  },
+  {
+    "index": 24,
+    "question": "Cơ sở dữ liệu hệ thống Msdb dùng để?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Lưu trữ các table và stored proceduce trong quá trình làm việc",
+        "images": []
+      },
+      "2": {
+        "text": "b. Lưu trữ các system objects",
+        "images": []
+      },
+      "3": {
+        "text": "c. Lưu trữ các thông tin cấp hệ thống",
+        "images": []
+      },
+      "4": {
+        "text": "d. Hoạch định các báo động và công việc cần làm (schedule alerts and jobs)",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      }
+    },
+    "correctAnswer": 4
+  },
+  {
+    "index": 25,
+    "question": "Phiên bản Enterprise của SQL Server chứa đầy đủ các đặc trưng của SQL Server và có thể chạy tốt trên hệ thống lên đến?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. 32 CPUs và 64 GB RAM",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "2": {
+        "text": "b. 64 CPUs và 128 GB RAM",
+        "images": []
+      },
+      "3": {
+        "text": "c. 16 CPUs và 32 GB RAM",
+        "images": []
+      },
+      "4": {
+        "text": "d. 4 CPU và 2 GB RAM",
+        "images": []
+      }
+    },
+    "correctAnswer": 1
+  },
+  {
+    "index": 26,
+    "question": "Một cơ sở dữ liệu chứa ít nhất là?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. 1 file mdf và 1 file ndf",
+        "images": []
+      },
+      "2": {
+        "text": "b. 1 file mdf và 1 file ldf",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0xLjYgLTAuNSAxNiAxNiINCgkgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0xLjYgLTAuNSAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojRkY0MDNDOyIgZD0iTTEyLjgsMi43TDEwLjEsMGMwLDAtMS42LDEuNS0zLjcsNEM0LjMsMS41LDIuNywwLDIuNywwTDAsMi43YzAsMCwxLjksMS4zLDQuNiwzLjcNCglDMyw4LjcsMS4zLDExLjYsMCwxNC45QzIuMiwxMi4yLDQuNCw5LjksNi40LDhjMiwxLjksNC4yLDQuMiw2LjQsNi45Yy0xLjMtMy4zLTMtNi4yLTQuNi04LjZDMTAuOSw0LDEyLjgsMi43LDEyLjgsMi43eiIvPg0KPC9zdmc+DQo="
+        ]
+      },
+      "3": {
+        "text": "c. 1 file mdf",
+        "images": []
+      },
+      "4": {
+        "text": "d. 1 file mdf, 1 file ndf và 1 file ldf",
+        "images": []
+      }
+    },
+    "correctAnswer": null
+  },
+  {
+    "index": 27,
+    "question": "Hệ quản trị cơ sở dữ liệu SQL Server 2008 không hỗ trợ tính năng nào sau đây?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Định nghĩa dữ liệu",
+        "images": []
+      },
+      "2": {
+        "text": "b. Kết nối dữ liệu với các dịch vụ điện toán đám mây",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "3": {
+        "text": "c. Khôi phục dữ liệu",
+        "images": []
+      },
+      "4": {
+        "text": "d. Khai phá dữ liệu",
+        "images": []
+      }
+    },
+    "correctAnswer": 2
+  },
+  {
+    "index": 28,
+    "question": "Phiên bản Personal của SQL Server có thể cài đặt?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Windows Server 2000",
+        "images": []
+      },
+      "2": {
+        "text": "b. Windows XP",
+        "images": []
+      },
+      "3": {
+        "text": "c. Trên hầu hết các phiên bản của windows, kể cả Windows 98.",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "4": {
+        "text": "d. Windows 98",
+        "images": []
+      }
+    },
+    "correctAnswer": 3
+  },
+  {
+    "index": 29,
+    "question": "Trong cơ sở dữ liệu hệ thống, tập tin nào sau đây lưu trữ các thông tin login account?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Tempdb",
+        "images": []
+      },
+      "2": {
+        "text": "b. Msdb",
+        "images": []
+      },
+      "3": {
+        "text": "c. Master",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "4": {
+        "text": "d. Model",
+        "images": []
+      }
+    },
+    "correctAnswer": 3
+  },
+  {
+    "index": 30,
+    "question": "Thành phần nào không phải đối tượng trong SQL Server?",
+    "question_images": [],
+    "options": {
+      "1": {
+        "text": "a. Constraint",
+        "images": []
+      },
+      "2": {
+        "text": "b. Table",
+        "images": []
+      },
+      "3": {
+        "text": "c. Replication",
+        "images": [
+          "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiIFsNCgk8IUVOVElUWSBuc19mbG93cyAiaHR0cDovL25zLmFkb2JlLmNvbS9GbG93cy8xLjAvIj4NCl0+DQo8c3ZnIHZlcnNpb249IjEuMSINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyINCgkgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9Ii0wLjEgMCAxNiAxNiIgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0wLjEgMCAxNiAxNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaW5ZTWlkIG1lZXQiPg0KPGRlZnM+DQo8L2RlZnM+DQo8cGF0aCBzdHlsZT0iZmlsbDojOTlDQzMzOyIgZD0iTTYuNCwxMS4xYy0yLTIuNS0zLjctNC0zLjctNFMwLjMsOS41LDAsOS44QzUsMTMuMSw4LjEsMTYsOC4xLDE2czAuMi0wLjcsMC42LTEuOA0KCWMwLjktMi43LDMuMi04LjEsNy4xLTE0LjJDMTEuMiwzLjcsOC4xLDguMiw2LjQsMTEuMXoiLz4NCjwvc3ZnPg0K"
+        ]
+      },
+      "4": {
+        "text": "d. Trigger",
+        "images": []
+      }
+    },
+    "correctAnswer": 3
+  }
+]
