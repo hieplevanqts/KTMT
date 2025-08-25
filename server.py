@@ -31,20 +31,36 @@ def get_json_files():
                 return jsonify([]), 500
     return jsonify([]), 404
 
-@app.route('/json/<path:filename>')
-
+# Lấy đường dẫn đến thư mục chứa file script hiện tại
 current_dir = os.path.dirname(__file__)
-# Nối thêm thư mục 'json' vào đường dẫn
+
+# Nối thêm thư mục 'json' vào đường dẫn, đây là thư mục gốc chứa các file JSON
 json_dir = os.path.join(current_dir, 'json')
-list_file_path = os.path.join(json_dir, filename)
-    if os.path.exists(list_file_path):
-        with open(list_file_path, 'r', encoding='utf-8') as f:
-            try:
-                files = json.load(f)
-                return jsonify(files)
-            except json.JSONDecodeError:
-                return jsonify([]), 500
-    return jsonify([]), 404
+
+@app.route('/json/<path:filename>')
+def get_json_file(filename):
+    """
+    Route để lấy nội dung của file JSON từ thư mục 'json'.
+    
+    Args:
+        filename (str): Tên file, bao gồm cả đường dẫn thư mục con nếu có.
+    """
+    
+    # Kiểm tra xem đường dẫn thư mục có tồn tại không
+    if not os.path.exists(json_dir):
+        return jsonify({"error": "JSON directory not found"}), 500
+
+    # Sử dụng send_from_directory để gửi file một cách an toàn
+    # Flask sẽ tự động tìm file trong json_dir và gửi nó về trình duyệt
+    try:
+        return send_from_directory(json_dir, filename)
+    except FileNotFoundError:
+        return jsonify({"error": "File not found"}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 
