@@ -217,196 +217,350 @@
     </div>
 
     <script>
-        const selectElement = document.getElementById('file-select');
-        const statusModal = document.getElementById('status-modal');
-        const statusTitle = document.getElementById('modal-status-title');
-        const statusMessage = document.getElementById('modal-status-message');
-        const okButton = document.getElementById('modal-status-ok-btn');
-
-        const confirmModal = document.getElementById('confirm-modal');
-        const confirmOkBtn = document.getElementById('confirm-ok-btn');
-        const confirmCancelBtn = document.getElementById('confirm-cancel-btn');
-        const countdownSpan = document.getElementById('countdown');
-
-        let countdownInterval;
-
-        function showStatusModal(isSuccess, title, message) {
-            statusTitle.textContent = title;
-            statusMessage.textContent = message;
-            
-            if (isSuccess) {
-                statusTitle.classList.remove('error');
-                statusTitle.style.color = '#4CAF50';
-            } else {
-                statusTitle.classList.add('error');
-                statusTitle.style.color = '#f44336';
+        /**
+         * @class ApiService
+         * @description Handles all API calls to the backend server.
+         */
+        class ApiService {
+            constructor(baseUrl) {
+                this.baseUrl = baseUrl;
             }
-            
-            statusModal.classList.add('is-visible');
+
+            /**
+             * Fetches the list of available files from the server.
+             * @returns {Promise<string[]>} A promise that resolves to an array of file names.
+             */
+            async fetchFiles() {
+                try {
+                    const response = await fetch(`${this.baseUrl}/api/files`);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return await response.json();
+                } catch (error) {
+                    console.error('Error fetching files:', error);
+                    return [];
+                }
+            }
+
+            /**
+             * Submits HTML data to the server for processing.
+             * @param {string} htmlCode - The HTML content.
+             * @param {string} selectedFile - The name of the selected JSON file.
+             * @returns {Promise<Object>} A promise that resolves to the server's response.
+             */
+            async submitFormData(htmlCode, selectedFile) {
+                try {
+                    const response = await fetch(`${this.baseUrl}/api/export-json`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ htmlCode, selectedFile })
+                    });
+                    return await response.json();
+                } catch (error) {
+                    console.error('Error submitting form data:', error);
+                    return { success: false, message: 'An error occurred while connecting to the server.' };
+                }
+            }
+
+            /**
+             * Adds a new subject to the server.
+             * @param {string} subjectName - The name of the new subject.
+             * @returns {Promise<Object>} A promise that resolves to the server's response.
+             */
+            async addSubject(subjectName) {
+                try {
+                    const response = await fetch(`${this.baseUrl}/api/add-subject`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ subjectName })
+                    });
+                    return await response.json();
+                } catch (error) {
+                    console.error('Error adding subject:', error);
+                    return { success: false, message: 'An error occurred while connecting to the server.' };
+                }
+            }
         }
 
-        async function fetchFiles() {
-            try {
-                const response = await fetch('http://127.0.0.1:5000/api/files');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const files = await response.json();
-                selectElement.innerHTML = '';
+        /**
+         * @class UIController
+         * @description Manages all UI-related tasks, including modal and form element manipulation.
+         */
+        class UIController {
+            constructor() {
+                this.dom = {
+                    selectElement: document.getElementById('file-select'),
+                    statusModal: document.getElementById('status-modal'),
+                    statusTitle: document.getElementById('modal-status-title'),
+                    statusMessage: document.getElementById('modal-status-message'),
+                    statusOkBtn: document.getElementById('modal-status-ok-btn'),
+                    addSubjectModal: document.getElementById('add-subject-modal'),
+                    confirmModal: document.getElementById('confirm-modal'),
+                    confirmOkBtn: document.getElementById('confirm-ok-btn'),
+                    confirmCancelBtn: document.getElementById('confirm-cancel-btn'),
+                    countdownSpan: document.getElementById('countdown'),
+                    htmlForm: document.getElementById('html-form'),
+                    addSubjectBtn: document.getElementById('add-subject-btn'),
+                    modalForm: document.getElementById('modal-form'),
+                    subjectInput: document.getElementById('subject-name'),
+                    validationError: document.getElementById('validation-error'),
+                };
+            }
+
+            /**
+             * Populates the file select dropdown with file names.
+             * @param {string[]} files - An array of file names.
+             */
+            populateFileSelect(files) {
+                this.dom.selectElement.innerHTML = '';
                 if (files.length > 0) {
                     files.forEach(file => {
                         const option = document.createElement('option');
                         option.value = file;
                         option.textContent = file;
-                        selectElement.appendChild(option);
+                        this.dom.selectElement.appendChild(option);
                     });
                 } else {
                     const option = document.createElement('option');
-                    option.textContent = 'Không có tệp tin nào.';
-                    selectElement.appendChild(option);
+                    option.textContent = 'No files found.';
+                    this.dom.selectElement.appendChild(option);
                 }
-            } catch (error) {
-                console.error('Lỗi khi tải danh sách file:', error);
-                selectElement.innerHTML = '<option>Lỗi khi tải danh sách tệp.</option>';
+            }
+
+            /**
+             * Displays the status modal with a message.
+             * @param {boolean} isSuccess - True if the operation was successful.
+             * @param {string} title - The title of the status message.
+             * @param {string} message - The message body.
+             */
+            showStatusModal(isSuccess, title, message) {
+                this.dom.statusTitle.textContent = title;
+                this.dom.statusMessage.textContent = message;
+                this.dom.statusTitle.classList.toggle('error', !isSuccess);
+                this.dom.statusModal.classList.add('is-visible');
+            }
+
+            /**
+             * Shows a specific modal by ID.
+             * @param {HTMLElement} modalElement - The modal to show.
+             */
+            showModal(modalElement) {
+                modalElement.classList.add('is-visible');
+            }
+
+            /**
+             * Hides a specific modal.
+             * @param {HTMLElement} modalElement - The modal to hide.
+             */
+            hideModal(modalElement) {
+                modalElement.classList.remove('is-visible');
+            }
+
+            /**
+             * Displays a validation error message.
+             * @param {string} message - The error message.
+             */
+            showValidationError(message) {
+                this.dom.validationError.textContent = message;
+                this.dom.validationError.style.display = 'block';
+            }
+
+            /**
+             * Hides the validation error message.
+             */
+            hideValidationError() {
+                this.dom.validationError.style.display = 'none';
             }
         }
 
-        document.addEventListener('DOMContentLoaded', fetchFiles);
-        
-        async function submitFormData() {
-            const htmlCode = document.getElementById('html-code').value;
-            const selectedFile = document.getElementById('file-select').value;
+        /**
+         * @class App
+         * @description The main class that initializes and controls the application.
+         */
+        class App {
+            constructor(apiService, uiController) {
+                this.apiService = apiService;
+                this.uiController = uiController;
+                this.countdownInterval = null;
+                this.dom = this.uiController.dom;
+            }
 
-            try {
-                const response = await fetch('http://127.0.0.1:5000/api/export-json', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        htmlCode: htmlCode,
-                        selectedFile: selectedFile
-                    })
-                });
+            /**
+             * Initializes the application by setting up event listeners and fetching data.
+             */
+            init() {
+                this.fetchFiles();
+                this.setupEventListeners();
+            }
+
+            /**
+             * Fetches files from the server and updates the UI.
+             */
+            async fetchFiles() {
+                const files = await this.apiService.fetchFiles();
+                this.uiController.populateFileSelect(files);
+            }
+
+            /**
+             * Sets up all global and form-specific event listeners.
+             */
+            setupEventListeners() {
+                this.dom.htmlForm.addEventListener('submit', this.handleFormSubmit.bind(this));
+                this.dom.addSubjectBtn.addEventListener('click', this.handleAddSubjectClick.bind(this));
+                this.dom.confirmOkBtn.addEventListener('click', this.handleConfirmOk.bind(this));
+                this.dom.confirmCancelBtn.addEventListener('click', this.handleConfirmCancel.bind(this));
+                this.dom.statusOkBtn.addEventListener('click', () => this.uiController.hideModal(this.dom.statusModal));
                 
-                const result = await response.json();
-                showStatusModal(result.success, result.success ? 'Thành công' : 'Thất bại', result.message);
+                this.dom.addSubjectModal.querySelector('.close-button').addEventListener('click', () => {
+                    this.uiController.hideModal(this.dom.addSubjectModal);
+                });
+
+                this.dom.statusModal.querySelector('.close-button').addEventListener('click', () => {
+                    this.uiController.hideModal(this.dom.statusModal);
+                });
+
+                this.dom.modalForm.addEventListener('submit', this.handleSubjectFormSubmit.bind(this));
+
+                window.addEventListener('click', (event) => {
+                    if (event.target === this.dom.addSubjectModal) {
+                        this.uiController.hideModal(this.dom.addSubjectModal);
+                    }
+                    if (event.target === this.dom.statusModal) {
+                        this.uiController.hideModal(this.dom.statusModal);
+                    }
+                    if (event.target === this.dom.confirmModal) {
+                        this.stopCountdown();
+                        this.uiController.hideModal(this.dom.confirmModal);
+                    }
+                });
+            }
+
+            /**
+             * Handles the main form submission event.
+             * @param {Event} event - The form submission event.
+             */
+            handleFormSubmit(event) {
+                event.preventDefault();
+                const htmlCode = document.getElementById('html-code').value;
+
+                if (!htmlCode) {
+                    this.uiController.showStatusModal(false, 'Thất bại', 'Vui lòng nhập nội dung HTML.');
+                    return;
+                }
+
+                this.startCountdown();
+            }
+
+            /**
+             * Starts the countdown for the confirmation modal.
+             */
+            startCountdown() {
+                this.uiController.showModal(this.dom.confirmModal);
+                let timeLeft = 10;
+                this.dom.countdownSpan.textContent = timeLeft;
+                this.dom.confirmOkBtn.disabled = true;
+
+                this.stopCountdown();
+                this.countdownInterval = setInterval(() => {
+                    timeLeft -= 1;
+                    this.dom.countdownSpan.textContent = timeLeft;
+
+                    if (timeLeft <= 0) {
+                        this.stopCountdown();
+                        this.dom.countdownSpan.textContent = "Bạn có thể xác nhận ngay!";
+                        this.dom.confirmOkBtn.disabled = false;
+                    }
+                }, 1000);
+            }
+
+            /**
+             * Stops the confirmation modal countdown.
+             */
+            stopCountdown() {
+                if (this.countdownInterval) {
+                    clearInterval(this.countdownInterval);
+                    this.countdownInterval = null;
+                }
+            }
+
+            /**
+             * Handles the confirmation OK button click.
+             */
+            async handleConfirmOk() {
+                this.stopCountdown();
+                this.uiController.hideModal(this.dom.confirmModal);
+                await this.submitFormData();
+            }
+
+            /**
+             * Handles the confirmation cancel button click.
+             */
+            handleConfirmCancel() {
+                this.stopCountdown();
+                this.uiController.hideModal(this.dom.confirmModal);
+            }
+
+            /**
+             * Submits the main form data to the server.
+             */
+            async submitFormData() {
+                const htmlCode = document.getElementById('html-code').value;
+                const selectedFile = document.getElementById('file-select').value;
+                const result = await this.apiService.submitFormData(htmlCode, selectedFile);
+
+                this.uiController.showStatusModal(result.success, result.success ? 'Thành công' : 'Thất bại', result.message);
 
                 if (result.success) {
-                    document.getElementById('html-form').reset();
-                    fetchFiles();
+                    this.dom.htmlForm.reset();
+                    this.fetchFiles();
                 }
-            } catch (error) {
-                console.error('Lỗi khi gửi dữ liệu:', error);
-                showStatusModal(false, 'Lỗi', 'Đã xảy ra lỗi khi kết nối với server.');
+            }
+
+            /**
+             * Handles the "Add Subject" button click.
+             */
+            handleAddSubjectClick() {
+                this.dom.subjectInput.value = '';
+                this.uiController.hideValidationError();
+                this.uiController.showModal(this.dom.addSubjectModal);
+            }
+
+            /**
+             * Handles the "Add Subject" form submission.
+             * @param {Event} event - The form submission event.
+             */
+            async handleSubjectFormSubmit(event) {
+                event.preventDefault();
+                const subjectName = this.dom.subjectInput.value.trim();
+                const validRegex = /^[a-zA-Z0-9_]*$/;
+
+                if (!subjectName) {
+                    this.uiController.showValidationError('Tên môn không được để trống.');
+                } else if (!validRegex.test(subjectName)) {
+                    this.uiController.showValidationError('Tên môn chỉ được chứa chữ cái, số, và dấu gạch dưới (_).');
+                } else {
+                    this.uiController.hideValidationError();
+                    const result = await this.apiService.addSubject(subjectName);
+
+                    if (result.success) {
+                        this.uiController.hideModal(this.dom.addSubjectModal);
+                        this.uiController.showStatusModal(true, 'Thành công', result.message);
+                        this.fetchFiles();
+                    } else {
+                        this.uiController.showValidationError(result.message);
+                        this.uiController.showStatusModal(false, 'Thất bại', result.message);
+                    }
+                }
             }
         }
 
-        document.getElementById('html-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const htmlCode = document.getElementById('html-code').value;
-
-            if (!htmlCode) {
-                showStatusModal(false, 'Thất bại', 'Vui lòng nhập nội dung HTML.');
-                return;
-            }
-
-            confirmModal.classList.add('is-visible');
-            
-            let timeLeft = 10;
-            countdownSpan.textContent = timeLeft;
-            confirmOkBtn.disabled = true;
-
-            countdownInterval = setInterval(() => {
-                timeLeft -= 1;
-                countdownSpan.textContent = timeLeft;
-
-                if (timeLeft <= 0) {
-                    clearInterval(countdownInterval);
-                    countdownSpan.textContent = "Bạn có thể xác nhận ngay!";
-                    confirmOkBtn.disabled = false;
-                }
-            }, 1000);
-        });
-
-        confirmOkBtn.addEventListener('click', () => {
-            clearInterval(countdownInterval);
-            confirmModal.classList.remove('is-visible');
-            submitFormData();
-        });
-
-        confirmCancelBtn.addEventListener('click', () => {
-            clearInterval(countdownInterval);
-            confirmModal.classList.remove('is-visible');
-        });
-
-        const addSubjectBtn = document.getElementById('add-subject-btn');
-        const modal = document.getElementById('add-subject-modal');
-        const closeModalBtn = document.querySelector('.close-button');
-        const modalForm = document.getElementById('modal-form');
-        const subjectInput = document.getElementById('subject-name');
-        const errorDiv = document.getElementById('validation-error');
-
-        addSubjectBtn.addEventListener('click', () => {
-            modal.classList.add('is-visible');
-            subjectInput.value = '';
-            errorDiv.style.display = 'none';
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            modal.classList.remove('is-visible');
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target == modal) {
-                modal.classList.remove('is-visible');
-            }
-            if (event.target == statusModal) {
-                statusModal.classList.remove('is-visible');
-            }
-            if (event.target == confirmModal) {
-                clearInterval(countdownInterval);
-                confirmModal.classList.remove('is-visible');
-            }
-        });
-
-        okButton.addEventListener('click', () => {
-            statusModal.classList.remove('is-visible');
-        });
-
-        modalForm.addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const subjectName = subjectInput.value.trim();
-            const validRegex = /^[a-zA-Z0-9_]*$/;
-
-            errorDiv.style.display = 'block';
-
-            if (!subjectName) {
-                errorDiv.textContent = 'Tên môn không được để trống.';
-            } else if (!validRegex.test(subjectName)) {
-                errorDiv.textContent = 'Tên môn chỉ được chứa chữ cái, số, và dấu gạch dưới (_). Không có khoảng trắng, ký tự đặc biệt hay tiếng Việt.';
-            } else {
-                try {
-                    const response = await fetch('http://127.0.0.1:5000/api/add-subject', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ subjectName: subjectName })
-                    });
-                    
-                    const result = await response.json();
-
-                    if (result.success) {
-                        showStatusModal(true, 'Thành công', result.message);
-                        modal.classList.remove('is-visible');
-                        fetchFiles();
-                    } else {
-                        showStatusModal(false, 'Thất bại', result.message);
-                        errorDiv.textContent = result.message;
-                    }
-                } catch (error) {
-                    console.error('Lỗi khi thêm môn học:', error);
-                    showStatusModal(false, 'Lỗi', 'Đã xảy ra lỗi khi kết nối với server.');
-                    errorDiv.textContent = 'Đã xảy ra lỗi khi kết nối với server.';
-                }
-            }
+        // Initialize the application once the DOM is ready.
+        document.addEventListener('DOMContentLoaded', () => {
+            const apiService = new ApiService('http://127.0.0.1:5001');
+            const uiController = new UIController();
+            const app = new App(apiService, uiController);
+            app.init();
         });
     </script>
 </body>

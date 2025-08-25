@@ -581,7 +581,9 @@
       <header>
         <h1>Quiz App</h1>
         <button id="examModeBtn">Thi thử</button>
-        <a href="tool.html" class="custom-btn">Thêm câu hỏi</a>
+        <a href="http://127.0.0.1:5001/" class="custom-btn">Thêm câu hỏi</a>
+        <a href="#" class="custom-btn" id="exportPdfBtn">Xuất PDF</a>
+        <a href="#" class="custom-btn" id="exportWordBtn">Xuất Word</a>
       </header>
       <div class="controls">
         <label for="fileSelect">Chọn bộ câu hỏi:</label>
@@ -659,6 +661,18 @@
     <button id="scrollTopBtn" onclick="scrollToTop()">⬆</button>
     <button id="scrollBottomBtn" onclick="scrollToBottom()">⬇</button>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx@7.8.2/build/index.js"></script>
+    <script>
+        (function (jsPDFAPI) {
+          'use strict';
+          // Vui lòng thay thế chuỗi 'YOUR_BASE64_FONT_STRING_HERE' bên dưới bằng chuỗi Base64 của font chữ bạn đã chuyển đổi.
+          var font = 'Tm90b1NhbnMtUmVndWxhci50dGY=';
+          jsPDFAPI.addFileToVFS('VietnameseFont.ttf', font);
+          jsPDFAPI.addFont('VietnameseFont.ttf', 'VietnameseFont', 'normal');
+        })(window.jspdf.jsPDF.API);
+    </script>
     <script>
       class QuizApp {
         constructor() {
@@ -690,6 +704,10 @@
             closeConfirmModal: document.getElementById("closeConfirmModal"),
             confirmSubmitBtn: document.getElementById("confirmSubmitBtn"),
             cancelConfirmBtn: document.getElementById("cancelSubmitBtn"),
+            
+            // New export buttons
+            exportPdfBtn: document.getElementById("exportPdfBtn"),
+            exportWordBtn: document.getElementById("exportWordBtn"),
           };
           
           this.state = {
@@ -736,6 +754,10 @@
           this.elements.confirmSubmitBtn.addEventListener("click", () => this.proceedSubmission());
           this.elements.cancelConfirmBtn.addEventListener("click", () => this.closeConfirmModal());
           this.elements.closeConfirmModal.addEventListener("click", () => this.closeConfirmModal());
+          
+          // New export buttons
+          this.elements.exportPdfBtn.addEventListener("click", () => this.exportPdf());
+          this.elements.exportWordBtn.addEventListener("click", () => this.exportWord());
         }
 
         async loadFileList() {
@@ -1019,6 +1041,215 @@
         
         closeConfirmModal() {
             this.elements.confirmSubmitModal.style.display = "none";
+        }
+        
+        async exportPdf() {
+            const quizFileName = this.elements.fileSelect.value;
+            if (!quizFileName) {
+                alert("Vui lòng chọn một bộ câu hỏi để xuất PDF.");
+                return;
+            }
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            let y = 10;
+            const margin = 10;
+            const pageHeight = doc.internal.pageSize.height;
+
+            doc.setFont('VietnameseFont');
+            doc.setFontSize(16);
+            doc.text(`Bộ câu hỏi: ${quizFileName}`, margin, y);
+            y += 20;
+
+            for (const [index, q] of this.state.allQuizData.entries()) {
+                if (y > pageHeight - 40) {
+                    doc.addPage();
+                    y = margin;
+                }
+
+                // Question number and content
+                doc.setFontSize(12);
+                const questionText = `Câu ${index + 1}: ${q.question}`;
+                const lines = doc.splitTextToSize(questionText, 180);
+                doc.text(lines, margin, y);
+                y += lines.length * 5 + 5;
+
+                // Question images
+                for (const imgUrl of (q.question_images || [])) {
+                    if (y > pageHeight - 50) {
+                        doc.addPage();
+                        y = margin;
+                    }
+                    try {
+                        const img = await this.getImageData(imgUrl);
+                        const imgWidth = 80; // Chiều rộng cố định
+                        const imgHeight = (img.height * imgWidth) / img.width;
+                        if (y + imgHeight > pageHeight - 30) {
+                            doc.addPage();
+                            y = margin;
+                        }
+                        doc.addImage(img.data, 'JPEG', margin + 10, y, imgWidth, imgHeight);
+                        y += imgHeight + 5;
+                    } catch (e) {
+                        console.error("Lỗi khi tải ảnh câu hỏi:", e);
+                    }
+                }
+
+                // Options
+                for (const key of Object.keys(q.options)) {
+                    const optionText = `${key}. ${q.options[key].text}`;
+                    const optionLines = doc.splitTextToSize(optionText, 180);
+                    doc.text(optionLines, margin + 5, y);
+                    y += optionLines.length * 5 + 5;
+                    
+                    // Option images
+                    for (const imgUrl of (q.options[key].images || [])) {
+                        if (y > pageHeight - 50) {
+                            doc.addPage();
+                            y = margin;
+                        }
+                        try {
+                            const img = await this.getImageData(imgUrl);
+                            const imgWidth = 60; // Chiều rộng nhỏ hơn cho ảnh đáp án
+                            const imgHeight = (img.height * imgWidth) / img.width;
+                            if (y + imgHeight > pageHeight - 30) {
+                                doc.addPage();
+                                y = margin;
+                            }
+                            doc.addImage(img.data, 'JPEG', margin + 15, y, imgWidth, imgHeight);
+                            y += imgHeight + 5;
+                        } catch (e) {
+                            console.error("Lỗi khi tải ảnh đáp án:", e);
+                        }
+                    }
+                }
+                y += 5;
+            }
+
+            doc.save(`${quizFileName}.pdf`);
+        }
+        
+        async exportWord() {
+            const quizFileName = this.elements.fileSelect.value;
+            if (!quizFileName) {
+                alert("Vui lòng chọn một bộ câu hỏi để xuất Word.");
+                return;
+            }
+
+            const { Document, Paragraph, TextRun, HeadingLevel, Packer, ImageRun } = window.docx;
+
+            const children = [
+                new Paragraph({
+                    text: `Bộ câu hỏi: ${quizFileName}`,
+                    heading: HeadingLevel.TITLE,
+                    alignment: "center",
+                }),
+                new Paragraph({ text: "", spacing: { after: 200 } }),
+            ];
+
+            for (const [index, q] of this.state.allQuizData.entries()) {
+                // Question
+                children.push(
+                    new Paragraph({
+                        children: [
+                            new TextRun({
+                                text: `Câu ${index + 1}: ${q.question}`,
+                                bold: true,
+                            }),
+                        ],
+                        spacing: { after: 120 },
+                    })
+                );
+
+                // Question images
+                for (const imgUrl of (q.question_images || [])) {
+                    try {
+                        const img = await this.getImageBlob(imgUrl);
+                        children.push(
+                            new Paragraph({
+                                children: [
+                                    new ImageRun({
+                                        data: img,
+                                        transformation: {
+                                            width: 400, // Chiều rộng cố định
+                                            height: 200, // Chiều cao cố định
+                                        },
+                                    }),
+                                ],
+                            })
+                        );
+                    } catch (e) {
+                        console.error("Lỗi khi tải ảnh câu hỏi cho Word:", e);
+                    }
+                }
+
+                // Options
+                for (const key of Object.keys(q.options)) {
+                    children.push(
+                        new Paragraph({
+                            children: [
+                                new TextRun({
+                                    text: `${key}. ${q.options[key].text}`,
+                                }),
+                            ],
+                            indent: { left: 360 },
+                        })
+                    );
+
+                    // Option images
+                    for (const imgUrl of (q.options[key].images || [])) {
+                        try {
+                            const img = await this.getImageBlob(imgUrl);
+                            children.push(
+                                new Paragraph({
+                                    children: [
+                                        new ImageRun({
+                                            data: img,
+                                            transformation: {
+                                                width: 300, // Chiều rộng nhỏ hơn
+                                                height: 150, // Chiều cao nhỏ hơn
+                                            },
+                                        }),
+                                    ],
+                                    indent: { left: 400 },
+                                })
+                            );
+                        } catch (e) {
+                            console.error("Lỗi khi tải ảnh đáp án cho Word:", e);
+                        }
+                    }
+                }
+
+                children.push(new Paragraph({ text: "", spacing: { after: 200 } }));
+            }
+
+            const doc = new Document({ sections: [{ children }] });
+
+            Packer.toBlob(doc).then(blob => {
+                saveAs(blob, `${quizFileName}.docx`);
+            });
+        }
+        
+        // Helper function to get image data for jsPDF
+        async getImageData(url) {
+            const response = await fetch(url);
+            const blob = await response.blob();
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    const img = new Image();
+                    img.onload = () => resolve({ data: reader.result, width: img.width, height: img.height });
+                    img.src = reader.result;
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(blob);
+            });
+        }
+        
+        // Helper function to get image blob for docx
+        async getImageBlob(url) {
+            const response = await fetch(url);
+            return response.blob();
         }
       }
 

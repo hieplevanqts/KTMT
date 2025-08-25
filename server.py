@@ -4,8 +4,12 @@ import json
 import requests
 import base64
 from bs4 import BeautifulSoup
+# Thêm import cho Flask-CORS
+from flask_cors import CORS
 
 app = Flask(__name__)
+# Áp dụng CORS cho toàn bộ ứng dụng
+CORS(app)
 
 # Phục vụ các file tĩnh (bao gồm tool.html)
 @app.route('/')
