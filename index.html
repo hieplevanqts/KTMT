@@ -762,7 +762,7 @@
 
         async loadFileList() {
           try {
-            const res = await fetch(`${this.baseUrl}/file_list.json`);
+            const res = await fetch(`${this.baseUrl}/api/files`);
             if (!res.ok) {
               console.error(`Error loading file_list.json: ${res.status} ${res.statusText}`);
               return;
