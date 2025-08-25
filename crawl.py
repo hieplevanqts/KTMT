@@ -57,7 +57,7 @@ def parse_html_to_json(file_path):
 
 
 # ====== MAIN ======
-url = "http://ehou.online/dap-an-mon-hoc-ehou/IT10"
+url = "http://ehou.online/dap-an-mon-hoc-ehou/EG09"
 
 os.makedirs("html", exist_ok=True)
 os.makedirs("json", exist_ok=True)
