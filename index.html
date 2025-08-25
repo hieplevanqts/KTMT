@@ -786,13 +786,11 @@
         }
 
         async loadQuiz(fileName) {
-          const parts = fileName.split('.');
-          const firstPart = parts[0];
-          console.log(`Loading quiz data from: json/${firstPart}`);
+          console.log(`Loading quiz data from: json/${fileName}`);
           try {
-            const res = await fetch(`${this.baseUrl}/json/${firstPart}`);
+            const res = await fetch(`${this.baseUrl}/json/${fileName}`);
             if (!res.ok) {
-              console.error(`Error loading json/${firstPart}: ${res.status} ${res.statusText}`);
+              console.error(`Error loading json/${fileName}: ${res.status} ${res.statusText}`);
               this.state.allQuizData = [];
               return;
             }

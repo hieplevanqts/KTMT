@@ -32,10 +32,18 @@ def get_json_files():
     return jsonify([]), 404
 
 @app.route('/json/<path:filename>')
-def serve_json(filename):
-    """Phục vụ các file JSON từ thư mục 'json'."""
-    return send_from_directory('json', filename)
-    
+list_file_path = os.path.join(os.path.dirname(__file__), filename)
+    if os.path.exists(list_file_path):
+        with open(list_file_path, 'r', encoding='utf-8') as f:
+            try:
+                files = json.load(f)
+                return jsonify(files)
+            except json.JSONDecodeError:
+                return jsonify([]), 500
+    return jsonify([]), 404
+
+
+
 # API endpoint để thêm môn học và cập nhật file_list.json
 @app.route('/api/add-subject', methods=['POST'])
 def add_subject():
